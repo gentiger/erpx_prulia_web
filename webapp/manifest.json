@@ -1,0 +1,243 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "com.erpx.site.prulia.PRULIA",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.erpx.site.prulia.PRULIA.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.uxap": {},
+				"sap.tnt": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.erpx.site.prulia.PRULIA.i18n.i18n"
+				}
+			},
+			"appParam": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/style2.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.erpx.site.prulia.PRULIA.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Main",
+					"target": "Main"
+				},
+				{
+					"pattern": "content",
+					"name": "Content",
+					"target": "MainContent"
+				},
+				{
+					"pattern": "president",
+					"name": "PresidentMessage",
+					"target": "PresidentMessage"
+				},
+				{
+					"pattern": "committee",
+					"name": "Committee",
+					"target": "Committee"
+				},
+				{
+					"pattern": "about",
+					"name": "About",
+					"target": "About"
+				},
+				{
+					"pattern": "profile",
+					"name": "Profile",
+					"target": "Profile"
+				},
+				{
+					"pattern": "membership",
+					"name": "Membership",
+					"target": "Membership"
+				},
+				{
+					"pattern": "usefullink",
+					"name": "UsefulLink",
+					"target": "UsefulLinks"
+				},
+				{
+					"pattern": "main2",
+					"name": "Main2",
+					"target": "Main2"
+				},
+				{
+					"pattern": "main3",
+					"name": "Main3",
+					"target": "Main3"
+				}
+			],
+			"targets": {
+				"Main": {
+					"viewType": "XML",
+					"viewName": "Main",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"MainContent": {
+					"viewType": "XML",
+					"viewName": "MainContent",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"PresidentMessage": {
+					"viewType": "XML",
+					"viewName": "PresidentMessage",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Committee": {
+					"viewType": "XML",
+					"viewName": "Committee",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"About": {
+					"viewType": "XML",
+					"viewName": "About",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Profile": {
+					"viewType": "XML",
+					"viewName": "Profile",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"UsefulLinks": {
+					"viewType": "XML",
+					"viewName": "UsefulLinks",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Membership": {
+					"viewType": "XML",
+					"viewName": "Membership",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Main2": {
+					"viewType": "XML",
+					"viewName": "Main2",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Main3": {
+					"viewType": "XML",
+					"viewName": "Main3"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

@@ -1,0 +1,216 @@
+<mvc:View controllerName="com.erpx.site.prulia.PRULIA.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	displayBlock="true" xmlns="sap.m" xmlns:custom="com.erpx.site.prulia.PRULIA.custom" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+			<Page showHeader="false" class="pruliaMain">
+				<content>
+					<l:VerticalLayout id="bannerLayout" width="100%" >
+						<l:BlockLayout id="BlockLayout">
+							<l:BlockLayoutRow >
+								<l:BlockLayoutCell
+										titleAlignment="Center"
+										title="Together We Grow"
+										class="startingImage imageCell startingText startingMiddleText">
+									<Text text="Prudential Life Insurance Agency Association" class="startingText startingMiddleText"/>
+									<!--<Button text="Learn More about PRULIA" type="Transparent" icon="sap-icon://navigation-right-arrow" iconFirst="false" press="handleAboutMessagePress"></Button>-->
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow class="mainMenu">
+								<l:BlockLayoutCell 
+										class="mainPageContent sapUiNoContentPadding">
+									<l:Grid defaultSpan="L4 M4 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
+										<GenericTile
+											frameType="OneByOne" press="handlePresidentMessagePress" headerImage="sap-icon://pu/president" header="&#xA;" subheader="President's message">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleCommitteePress" headerImage="sap-icon://pu/committee" header="&#xA;" subheader="Committee 2017-2019">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/membership" header="&#xA;" subheader="Membership">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/training" header="&#xA;" subheader="Training">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handlePhotoAlbumPress" headerImage="sap-icon://pu/photoalbum" header="&#xA;" subheader="Photo Album">
+										</GenericTile>
+									</l:Grid>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="Latest News" 
+										backgroundColorSet="ColorSet10" 
+										backgroundColorShade="ShadeD"
+										class="mainPageContent sapUiTinyMarginTopBottom">
+									
+									<HeaderContainer id="newsContainer" scrollStep="200" showDividers="false" content="{News>/}">
+										<GenericTile
+											backgroundImage="{News>image}"
+											frameType="TwoByOne" press="handleAboutMessagePress" class="mainImageTile">
+											<TileContent footer="{News>date}">
+												<NewsContent
+													contentText="{News>title}"/>
+											</TileContent>
+										</GenericTile>
+									</HeaderContainer>
+									<HBox width="100%" justifyContent="End">
+										<Button icon="sap-icon://navigation-right-arrow" text="More News" type="Transparent" press="handleAboutMessagePress"></Button>
+									</HBox>
+									
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow class="mainPageContent">
+								<l:BlockLayoutCell>
+									<FlexBox direction="Column" fitContainer="true"
+										alignItems="End" justifyContent="Center">
+										<Title text="NEW LOOK" class="login-font-heading-title login-font-heading"/>
+										<Title text="Webpage + PRULIA App" class="login-font-heading"/>
+										<Text class="login-font-heading-content" text="Come and register with our new PRULIA app to experiance our new look &amp; new functionality" />
+									</FlexBox>
+									
+								</l:BlockLayoutCell>
+								<l:BlockLayoutCell titleAlignment="Left"
+										title="Member Login" visible="{=!${member>/memberLogon}}">
+									<VBox>
+										<f:SimpleForm
+											editable="true"
+											layout="ResponsiveGridLayout" >
+											<f:content>
+												<Label text="Username" />
+												<Input id="idIptUsername"/>
+												<Label text="Password" />
+												<Input type="Password" id="idIptPassword">
+												</Input>
+											</f:content>
+										</f:SimpleForm>
+										<FlexBox
+											height="100px"
+											alignItems="Center"
+											justifyContent="End">
+											<items>
+												<Link text="First &amp; Forgot Password?" class="sapUiSmallMarginEnd" />
+												<Button text="Login" press="handleLoginPress"/>
+											</items>
+										</FlexBox>
+									</VBox>
+								</l:BlockLayoutCell>
+								<l:BlockLayoutCell titleAlignment="Left"
+										title="Member Area" visible="{=${member>/memberLogon}}">
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="About PRULIA"
+										class="aboutImage imageCell startingText startingMiddleText">
+									<VBox>
+										<items>
+											<Text text="Prudential Life Insurance Agency Association (PRULIA), was formed in 1989 to protect the interest of Prudential Agency Force" class="startingText "/>
+											<Button text="Learn More about PRULIA" icon="sap-icon://navigation-right-arrow" iconFirst="false" class="sapUiTinyMarginTopBottom" press="handleAboutPress"></Button>
+										</items>
+									</VBox>
+									
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="Smart Partners" 
+										class="mainPageContent">
+									
+									<HeaderContainer id="partnerContainer" scrollStep="200" showDividers="false" content="{News>/}">
+										<GenericTile
+											backgroundImage="{News>image}"
+											frameType="TwoByOne" press="handleAboutMessagePress" class="mainImageTile">
+											<TileContent footer="{News>date}">
+												<NewsContent
+													contentText="{News>title}"/>
+											</TileContent>
+										</GenericTile>
+									</HeaderContainer>
+									
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<!-- <l:BlockLayoutRow>
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="Useful Link" 
+										backgroundColorSet="ColorSet10" 
+										backgroundColorShade="ShadeD"
+										class="mainPageContent">
+									<Image src="css/images/UsefulLinkBanner.png" width="100%" mode="Background" densityAware="false"/>
+									<l:Grid defaultSpan="L3 M4 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
+										<GenericTile
+											frameType="OneByOne" press="handlePresidentMessagePress" header="PAMB" subheader="Prudential Malaysia">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleCommitteePress" header="&#xA;" subheader="Committee 2017-2019">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleMembershipPress" header="&#xA;" subheader="Membership">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleMembershipPress" header="&#xA;" subheader="Training">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleUsefulLinkPress" header="&#xA;" subheader="Event" >
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handlePhotoAlbumPress" header="&#xA;" subheader="Photo Album">
+										</GenericTile>
+									</l:Grid>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow> -->
+							<l:BlockLayoutRow class="contactRow ">
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="Contact"
+										backgroundColorSet="ColorSet2" 
+										backgroundColorShade="ShadeA"
+										class="contactCell startingText mainPageContent">
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow class="contactRow">
+								<l:BlockLayoutCell 
+										backgroundColorSet="ColorSet2" 
+										backgroundColorShade="ShadeA"
+										class="mainPageContentLeft">
+									<FlexBox direction="Row" fitContainer="true"
+										alignItems="Start" justifyContent="Start">
+										<core:Icon src="sap-icon://call" size="3rem" class="sapUiSmallMarginEnd" />
+										<Text text="Phone : 03-7727 6382&#xA;Fax   : 03-7727 6384&#xA;Email : prulia@yahoo.com" />
+									</FlexBox>
+									
+								</l:BlockLayoutCell>
+								<l:BlockLayoutCell 
+										backgroundColorSet="ColorSet2" 
+										backgroundColorShade="ShadeA"
+										class="mainPageContentRight">
+									<FlexBox direction="Row" fitContainer="true"
+										alignItems="Start" justifyContent="Start">
+										<core:Icon src="sap-icon://building" size="3rem" class="sapUiSmallMarginEnd" />
+										<Text text="Unit No. 531, 5th Floor, Block A, Lobby8,&#xA;Damansara Intan,&#xA;No. 1 Jalan SS20/27,&#xA;47400 Petaling Jaya,&#xA;Selangor Darul Ehsan." />
+									</FlexBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow class="contactRow ">
+								<l:BlockLayoutCell 
+										backgroundColorSet="ColorSet2" 
+										backgroundColorShade="ShadeA"
+										class="sapUiNoContentPadding mainPageContent">
+										<Image src="http://103.253.146.122/files/LocationMap.png" densityAware="false" width="100%"/>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell>
+									<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+						</l:BlockLayout>
+					</l:VerticalLayout>
+				</content>
+			</Page>
+</mvc:View>

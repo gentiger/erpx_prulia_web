@@ -1,0 +1,47 @@
+{
+	"mVersionDependency": {
+		"Base.baseLib.sap_belize_plus": "11.0.19",
+		"Base.baseLib": "11.0.19",
+		"Base": "11.0.19"
+	},
+	"sEntity": "Theme",
+	"sId": "pruliaui5theme--Contrast",
+	"sVendor": "ERP-X",
+	"oExtends": "Base.baseLib.sap_belize_plus",
+	"aFiles": [
+		"base",
+		"preview",
+		"custom"
+	],
+	"aBundled": [
+		"pruliaui5theme"
+	],
+	"sBuildOptions": "SKIP",
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE",
+	"mData": {
+		"mThemeMasterState": {
+			"mSourceInfo": {
+				"sCreated": "2018-08-04T10:29:21.718Z",
+				"sLastModified": "2018-08-04T11:21:46.523Z",
+				"aVersionHistory": [
+					{
+						"sDate": "2018-08-04T11:21:46.523Z",
+						"mVersion": {
+							"Base": "11.0.19",
+							"UR": "10.30.7.303325.0",
+							"UI5": "1.56.5"
+						}
+					},
+					{
+						"sDate": "2018-08-04T10:29:21.718Z",
+						"mVersion": {
+							"Base": "11.0.19",
+							"UI5": "1.56.5"
+						}
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,94 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.Membership" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Membership">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="fullBanner">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								titleAlignment="Left"
+								title="Membership"
+								class="membershipBannerImage startingText">
+							<Text text="Membership Details &amp; Benefits" class="startingText" />
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeB"
+								titleAlignment="Left">
+							<Image src="css/images/ForMembership.jpeg" width="100%"/>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Types of Membership">
+							<Text text="Quality Agent - A person who holds a full-time or part-time contract with Prudential Assurance Malaysia Berhad and registered as a PRULIA Member. Such Quality Agents are allowed to vote at any meeting of the association or hold any office.&#xA;&#xA;"/>
+							<Text text="Quality Leader - A person who holds a full-time Agent contract with Prudential Assurance Malaysia Berhad and is in a position of UM1, UM2, AM or SAM. Such Quality Leaders are allowed to vote at any meeting of the association or hold any office." />
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeB"
+								titleAlignment="Left"
+								title="Membership Application">
+							<Text text="Every application for membership shall be forwarded to the Secretary who shall at the first convenient opportunity submit it to the Committee for approval. Committee may at its discretion reject any application without assigning any reason therefore."/>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left"
+								title="Membership Fees, Subscriptions and Votes">
+							<Text text="Every applicant whose application has been approved as aforesaid shall upon payment of the entrance fee and the yearly subscription be admitted as a member of the Association and shall be entitled to all privileges of the appropriate membership and shall be bound by the provisions of the of the Rules of the of the Committee then enforce or which may thereafter be implemented from time to time."/>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeD"
+								titleAlignment="Left"
+								title="Membership Fee">
+							<Text text="The annual membership fee shall be payable by applicants for admission as follows:&#xA;&#xA;Quality Leader: RM 100.00&#xA;Quality Agent: RM 50.00"/>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left"
+								title="Membership Benefits">
+							<Image src="css/images/benefits.jpg" width="100%"/>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,168 @@
+{
+	"zipInfo": {
+		"creatorName": "Theming Engine",
+		"creatorVersion": "1.34.10",
+		"created": "2018-08-04T11:22:02Z",
+		"lessVersion": "1.6.3",
+		"compression": "none",
+		"exportMode": "ALL_LOCAL"
+	},
+	"contentInfo": {
+		"sourcePath": "https://themedesigner-s0010189526trial.dispatcher.hanatrial.ondemand.com/theming/repository/~v=Base:11.0.19,UR:10.30.7.303325.0,UI5:1.56.5",
+		"frameworks": {
+			"UR": {
+				"version": "10.30.7.303325.0"
+			},
+			"UI5": {
+				"version": "1.56.5"
+			},
+			"Base": {
+				"version": "11.0.19"
+			}
+		},
+		"libraries": {
+			"UR.baseLib": {
+				"version": "10.30.7.303325.0"
+			},
+			"UR.flash": {
+				"version": "10.30.7.303325.0"
+			},
+			"UR.ls": {
+				"version": "10.30.7.303325.0"
+			},
+			"UR.silverlight": {
+				"version": "10.30.7.303325.0"
+			},
+			"UI5.sap/ca/ui": {
+				"version": "1.56.0"
+			},
+			"UI5.sap/collaboration": {
+				"version": "1.56.0"
+			},
+			"UI5.sap/f": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/fileviewer": {
+				"version": "1.56.0"
+			},
+			"UI5.sap/fiori": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/gantt": {
+				"version": "1.56.4"
+			},
+			"UI5.sap/m": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/me": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ovp": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/rules/ui": {
+				"version": "1.56.2"
+			},
+			"UI5.sap/suite/ui/commons": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/suite/ui/generic/template": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/suite/ui/microchart": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/tnt": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/codeeditor": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/commons": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/comp": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/core": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/dt": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/export": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/fl": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/layout": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/mdc": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/richtexteditor": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/rta": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/suite": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/table": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/unified": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/ux3": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/vbm": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/ui/vk": {
+				"version": "1.56.12"
+			},
+			"UI5.sap/ui/vtm": {
+				"version": "1.56.0"
+			},
+			"UI5.sap/ushell": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/uxap": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/viz": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/zen/commons": {
+				"version": "1.56.5"
+			},
+			"UI5.sap/zen/crosstab": {
+				"version": "1.56.5"
+			},
+			"Base.baseLib": {
+				"version": "11.0.19"
+			}
+		},
+		"themes": {
+			"pruliaui5theme": {
+				"id": "pruliaui5theme",
+				"extends": "sap_belize",
+				"label": "PRULIA UI5 Theme",
+				"vendor": "ERP-X",
+				"textDirections": "LTR,RTL"
+			},
+			"pruliaui5theme--Contrast": {
+				"id": "pruliaui5theme--Contrast",
+				"extends": "sap_belize_plus",
+				"label": "",
+				"vendor": "ERP-X",
+				"textDirections": ""
+			}
+		}
+	}
+}

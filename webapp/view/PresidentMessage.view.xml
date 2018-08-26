@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.PresidentMessage" xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page showHeader="false" displayBlock="true" class="presidentPage">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="President's Message">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="fullBanner">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								titleAlignment="Left"
+								title="Mani Raja Chandran"
+								class="presidentBannerImage startingText">
+							<Text text="President of PRULIA" class="startingText"/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Dear Members,">
+							<Text text="1st July 2017, marks the first day the newly elected Committee and I, begin our service to you and for you for the next 2 years. This would also mean that Mdm Emily officially ends her term as the President and remain in the new Committee as the Immediate Past President. On behalf of all the members of PRULIA, I would like to record a sincere thanks to the Outgoing President, Mdm Emily Ngok as well as her Outgoing Committee for a job well done. Emily had served us as President, for 3 consecutive terms, a record of sort and did a fine job in leading PRULIA to achieve things that many thought impossible to achieve. Kudos and Thank you Emily.&#xA;&#xA;"/>
+							<Text text="Since the AGM and election on May 11th, the new Committee in its 2 meetings, focused primarily on planning, and undertaking of portfolios as well as identifying and prioritizing of issues that need to be pursued for the next 2 years. I am pleased with the enthusiasm shown by the newly elected Committee members and I am sure with their commitment and dedication coupled with your support we will have a productive term ahead.&#xA;&#xA;" />
+							<Text text="2018 will mark the beginning of a new era in the financial services industry. Market Liberalization, partially at first, in 2018, and Full Liberalization, which is expected to take place in the year 2019 onwards will change the financial landscape. And Changes will always present new CHALLENGES and together with it, NEW OPPORTUNITY. And with many other challenges that we have faced together, this will be no difference. We need to stay united and continue to speak with one voice to ensure we reap maximum benefits from the opportunity presented before us.&#xA;&#xA;"/>
+							<Text text="As we face these challenges together, we are guided by the objectives stated in our constitution, amongst it include:&#xA;&#xA;"/>
+							<Text text="1.To make representations to the Prudential management and any relevant authority or organizations on issues which affects the members eg: product development, payment of commissions. Rights and ethics, Operations etc.&#xA;&#xA;"/>
+							<Text text="2.To promote professional advancement and improvement of the Agency Force for betterment of our image and to serve our clients better.&#xA;&#xA;"/>
+							<Text text="3.To foster communication and Unity amongst us.&#xA;&#xA;"/>
+							<Text text="4.To undertake activities to enhance image of members in the eyes of the public.&#xA;&#xA;"/>
+							<Text text="5.And many others&#xA;&#xA;"/>
+							<Text text="The Committee and I look forward to your continuous support and to stay united under the umbrella of PRULIA because UNITY is STRENGTH. Thank you and best wishes for Q3.&#xA;&#xA;"/>
+							<Text text="MANI RAJA CHANDRAN&#xA;PRESIDENT OF PRULIA"/>
+							
+							
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

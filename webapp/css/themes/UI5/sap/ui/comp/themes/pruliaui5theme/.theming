@@ -1,0 +1,38 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/comp.sap_belize": "1.56.5",
+		"UI5.sap/ui/comp": "1.56.5",
+		"UI5": "1.56.5"
+	},
+	"sEntity": "Theme",
+	"sId": "pruliaui5theme",
+	"sLabel": "PRULIA UI5 Theme",
+	"sVendor": "ERP-X",
+	"oExtends": "UI5.sap/ui/comp.sap_belize",
+	"aBundled": [
+		"pruliaui5theme--Contrast"
+	],
+	"sTextDirections": "LTR,RTL",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC",
+	"mCssScopes": {
+		"library": {
+			"sEmbeddingMethod": "APPEND",
+			"aScopes": [
+				{
+					"sLabel": "Contrast",
+					"sSelector": "sapContrast",
+					"sThemeIdSuffix": "Contrast",
+					"sThemability": "PUBLIC",
+					"aThemabilityFilter": [
+						"Color"
+					],
+					"rExcludeSelector": "\\.sapContrastPlus\\W",
+					"sEmbeddedFile": "pruliaui5theme--Contrast.library",
+					"sEmbeddedCompareFile": "library"
+				}
+			],
+			"sBaseFile": "library"
+		}
+	}
+}

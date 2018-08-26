@@ -1,0 +1,184 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout" 
+controllerName="com.erpx.site.prulia.PRULIA.controller.About"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--<MessagePage showHeader="false"-->
+	<!--			 text="Page under Construction"-->
+	<!--			 enableFormattedText="true"-->
+	<!--			 description="Work in progress"-->
+	<!--			 icon="sap-icon://message-warning">-->
+	<!--</MessagePage>-->
+	<Page showHeader="false" class="aboutPage">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="About PRULIA">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="fullBanner">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								titleAlignment="Left"
+								title="PRULIA"
+								class="aboutBannerImage startingText">
+							<Text text="Prudential Life Insurance Agency Association" class="startingText"/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="">
+							<FlexBox
+								fitContainer="true"
+								alignItems="Center"
+								justifyContent="Center">
+								<items>
+									<Image src="css/images/img-about.png" densityAware="false" width="100%"></Image>
+								</items>
+							</FlexBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA">
+							<Text text="Prudential Life Insurance Agency Association (PRULIA), was formed in 1989 to protect the interest of the Prudential Agency Force. As the financial landscape evolves, changes are inevitable. As it was evident in the 1st Financial Master Plan in 1996, there was a drastic change in compensation and structure of the insurance fraternity.&#xA;&#xA;"/>
+							<Text text="Moving forward, the imminent Bank Negara Malaysia Life Insurance and Family Takaful Framework will be implemented soon by the regulators.&#xA;&#xA;"/>
+							<Text class="blockquote text-bold" text='It is very important that every agent or leader of Prudential should be a member of PRULIA to be united and stand together as one, to be the united "Voice of the Agency".&#xA;&#xA;'/>
+							<Text text="Currently we have over 10,000 members from all over Malaysia and we expect the numbers to grow. Throughout the years, PRULIA has had 10 Past Presidents that served with the Association and currently the Presidency is helmed by Mr.Maniraja Chandran.&#xA;&#xA;" />
+							<Text text="Come and be a part of the PRULIA family today!!!"/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell class="videoWrapper" >
+							<core:HTML content='&lt;iframe frameborder=&quot;0&quot; height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;https://youtube.com/embed/d8je4qaC1BE?rel=0&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&quot;&gt; &lt;/iframe&gt;' />
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="vision-mission">
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="">
+							<VBox
+								width="100%"
+								height="90%"
+								class="quote-box vision-box blockquote">
+								<items>
+									<Text text='“' class="quotation-mark"/>
+									<Text text="Premier association in delivering comprehensive needs for esteemed members." class="quote-text"/>
+									<core:HTML content='&lt;hr&gt;' />
+									<Text text='Vision of PRULIA' />
+								</items>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="">
+							<VBox
+								width="100%"
+								height="90%"
+								class="quote-box mission-box blockquote">
+								<items>
+									<Text text='“' class="quotation-mark"/>
+									<Text text="Safeguarding members’ interest and welfare.&#xA;&#xA;" class="quote-text"/>
+									<core:HTML content='&lt;hr&gt;' />
+									<Text text='Mission of PRULIA' />
+								</items>
+							</VBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left"
+								title="M.E.S.R.A. Values">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<HBox 	
+								fitContainer="true"
+								justifyContent="Center">
+								<items>
+									<core:HTML content='&lt;p&gt;&lt;b class=&quot;red-text&quot;&gt;M&lt;/b&gt;utual Trust&lt;/p&gt;' />
+								</items>
+							</HBox>
+							
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<HBox 	
+								fitContainer="true"
+								justifyContent="Center">
+								<items>
+									<core:HTML content='&lt;p&gt;&lt;b class=&quot;red-text&quot;&gt;E&lt;/b&gt;mpathetic Listening&lt;/p&gt;' />
+								</items>
+							</HBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeB"
+								titleAlignment="Left">
+							<HBox 	
+								fitContainer="true"
+								justifyContent="Center">
+								<items>
+									<core:HTML content='&lt;p&gt;&lt;b class=&quot;red-text&quot;&gt;S&lt;/b&gt;olution Oriented&lt;/p&gt;' />
+								</items>
+							</HBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left">
+							<HBox 	
+								fitContainer="true"
+								justifyContent="Center">
+								<items>
+									<core:HTML content='&lt;p&gt;&lt;b class=&quot;red-text&quot;&gt;R&lt;/b&gt;espectful&lt;/p&gt;' />
+								</items>
+							</HBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeD"
+								titleAlignment="Left">
+							<HBox 	
+								fitContainer="true"
+								justifyContent="Center">
+								<items>
+									<core:HTML content='&lt;p&gt;&lt;b class=&quot;red-text&quot;&gt;A&lt;/b&gt;ccountable&lt;/p&gt;' />
+								</items>
+							</HBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

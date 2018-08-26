@@ -1,0 +1,408 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.f"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.Committee" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Committee 2017-2019">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="fullBanner">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell class="bannerCell">
+							<FlexBox
+								alignItems="Center"
+								justifyContent="Center">
+								<items>
+									<Image src="http://103.253.146.122/files/committee1.jpg" width="100%" densityAware="false"/>
+								</items>
+							</FlexBox>
+							
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="President" />
+								<f:Avatar
+									src="http://103.253.146.122/files/President.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Maniraja Chandran" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-2115977" href="tel:0192115977"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="maniraja.c@gmail.com" href="mailto:maniraja.c@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Immediate Past President" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Emily_Nyok.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Emily Ngok" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-2839999" href="tel:0122839999"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="emilyngok@yahoo.com" href="mailto:emilyngok@yahoo.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="1st Vice President" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Kam_Chee_Mengdf57a7.png"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Kam Chee Meng" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-9399928" href="tel:0199399928"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="kcm.prudential@gmail.com" href="mailto:kcm.prudential@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeC"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="2nd Vice President" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Lim_Sook_Kwan.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Lim Sook Kwan" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-6519982" href="tel:0196519982"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="limsookkwan@yahoo.com" href="mailto:limsookkwan@yahoo.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeB"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Secretary General" />
+								<f:Avatar
+									src="http://103.253.146.122/files/ShereenLim.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Shereen Lim Chooi Chin" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-9155571" href="tel:0129155571"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="shereen.prulia@gmail.com" href="mailto:shereen.prulia@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeB"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Assistant Secretary General" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Steven_Lee.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Steven Lee Kim Huat" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-2938891" href="tel:0122938891"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="khoee998@gmail.com" href="mailto:khoee998@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeD"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Treasurer" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Wooi198fd00.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Wooi Yu Thong" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-4106028" href="tel:0194106028"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="ytwooi@hotmail.com" href="mailto:ytwooi@hotmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeD"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Assistant Treasurer" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Justine_Ng.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Steven Lee Kim Huat" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-2991628" href="tel:0122991628"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="justineng2628@gmail.com" href="mailto:justineng2628@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="committeeRow">
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Alan_Lim.png"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Alan Lim Peng Boon" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="0126350035" href="tel:0126350035"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="alanlim2u@gmail.com" href="mailto:alanlim2u@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Nur_Ayesha.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Nur Ayesha" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-6579794" href="tel:0126579794"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="pearlsha49@gmail.com" href="mailto:pearlsha49@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Mohd_Haniff.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Mohd Haniff" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-2927938" href="tel:0122927938"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="hanifframza@gmail.com" href="mailto:hanifframza@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Raja559c6c.jpeg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Raja Zainal" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-4750470" href="tel:0124750470"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="rajazainal.prudential@gmail.com" href="mailto:rajazainal.prudential@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="committeeRow">
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Koh_Mei_Mei.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Koh Mei Mei" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="012-6113008" href="tel:0126113008"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="kohmeimei@gmail.com" href="mailto:kohmeimei@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Lim_Sin_Siong.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Lim Sin Siong" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-7755555" href="tel:0197755555"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="limsinsiong@yahoo.com" href="mailto:limsinsiong@yahoo.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Fauziah.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Fauziah Khalid" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-7779430" href="tel:0197779430"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="fauziahkhalid@prupartner.com.my" href="mailto:fauziahkhalid@prupartner.com.my"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<VBox
+								alignItems="Center">
+								<Title text="Committee" />
+								<f:Avatar
+									src="http://103.253.146.122/files/Mohd_Fuziad8769.jpg"
+									displaySize="XL">
+								</f:Avatar>
+								<Title text="Mohd Fuzi Dol" class="sapUiSmallMarginTop" />
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://phone" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="019-3122277" href="tel:0193122277"/>
+								</l:HorizontalLayout>
+								<l:HorizontalLayout>
+									<core:Icon src="sap-icon://email" class="sapUiSmallMarginEnd"></core:Icon>
+									<Link text="drzifu@gmail.com" href="mailto:drzifu@gmail.com"/>
+								</l:HorizontalLayout>
+							</VBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

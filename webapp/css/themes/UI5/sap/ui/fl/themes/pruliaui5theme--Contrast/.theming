@@ -1,0 +1,16 @@
+{
+	"mVersionDependency": {
+		"UI5.sap/ui/fl.sap_belize_plus": "1.56.5",
+		"UI5.sap/ui/fl": "1.56.5",
+		"UI5": "1.56.5"
+	},
+	"sEntity": "Theme",
+	"sId": "pruliaui5theme--Contrast",
+	"sVendor": "ERP-X",
+	"oExtends": "UI5.sap/ui/fl.sap_belize_plus",
+	"aBundled": [
+		"pruliaui5theme"
+	],
+	"sType": "ABSTRACT",
+	"sThemability": "PRIVATE"
+}

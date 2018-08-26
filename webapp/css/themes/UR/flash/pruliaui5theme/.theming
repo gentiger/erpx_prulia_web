@@ -1,0 +1,32 @@
+{
+	"mVersionDependency": {
+		"UR.flash.sap_belize": "10.30.7.303325.0",
+		"UR.flash": "10.30.7.303325.0",
+		"UR": "10.30.7.303325.0"
+	},
+	"sEntity": "Theme",
+	"sId": "pruliaui5theme",
+	"sLabel": "PRULIA UI5 Theme",
+	"sVendor": "ERP-X",
+	"oExtends": "UR.flash.sap_belize",
+	"aBuildFiles": [
+		"standards",
+		"standards_cozy",
+		"standards_condensed",
+		"standards_legacy"
+	],
+	"aFiles": [
+		"base",
+		"standards",
+		"standards_cozy",
+		"standards_condensed",
+		"standards_legacy",
+		"custom"
+	],
+	"aBundled": [
+		"pruliaui5theme--Contrast"
+	],
+	"sTextDirections": "LTR,RTL",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC"
+}

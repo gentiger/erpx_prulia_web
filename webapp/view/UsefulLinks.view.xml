@@ -1,0 +1,88 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.UsefulLinks" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Useful Links">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="fullBanner">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								titleAlignment="Left"
+								title="Useful Links"
+								class="usefulLinkBannerImage startingText">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left">
+							<List>
+									<StandardListItem
+										title="PAMB"
+										type="Navigation"
+										custom:openUrl="http://www.prudential.com.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="Eastspring Investments"
+										type="Navigation"
+										custom:openUrl="http://www.eastspringinvestments.com.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="PBTB"
+										type="Navigation"
+										custom:openUrl="https://www.prubsn.com.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="NAMLIFA"
+										type="Navigation"
+										custom:openUrl="http://namlifa.org.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="BNM"
+										type="Navigation"
+										custom:openUrl="http://www.bnm.gov.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="MII"
+										type="Navigation"
+										custom:openUrl="http://www.insurance.com.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="Securities Commission"
+										type="Navigation"
+										custom:openUrl="http://www.sc.com.my/"
+										press="handleUrlPress"/>
+									<StandardListItem
+										title="MTA"
+										type="Navigation"
+										custom:openUrl="http://www.malaysiantakaful.com.my/"
+										press="handleUrlPress"/>
+							</List>
+						</l:BlockLayoutCell>	
+					</l:BlockLayoutRow>	
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

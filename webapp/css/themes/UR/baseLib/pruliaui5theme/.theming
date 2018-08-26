@@ -1,0 +1,31 @@
+{
+	"mVersionDependency": {
+		"UR.baseLib.sap_belize": "10.30.7.303325.0",
+		"UR.baseLib": "10.30.7.303325.0",
+		"UR": "10.30.7.303325.0"
+	},
+	"sEntity": "Theme",
+	"sId": "pruliaui5theme",
+	"sLabel": "PRULIA UI5 Theme",
+	"sVendor": "ERP-X",
+	"oExtends": "UR.baseLib.sap_belize",
+	"aBuildFiles": [
+		"standards",
+		"standards_cozy",
+		"standards_condensed",
+		"standards_legacy"
+	],
+	"aFiles": [
+		"base",
+		"standards",
+		"standards_cozy",
+		"standards_condensed",
+		"standards_legacy"
+	],
+	"aBundled": [
+		"pruliaui5theme--Contrast"
+	],
+	"sTextDirections": "LTR,RTL",
+	"sType": "STANDARD",
+	"sThemability": "PUBLIC"
+}

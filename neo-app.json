@@ -1,0 +1,42 @@
+{
+  "welcomeFile": "/webapp/index.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+        "path": "/pruliathemepath", 
+        "target": {
+            "type": "application",
+            "name": "pruliaui5theme2"
+        },
+        "description": "Route for custom theme"
+    },
+    {
+    	"path": "/api",
+	      "target": { 
+	        "type": "destination",
+	        "name": "prulia_erpx",
+	        "entryPath": "/api"
+	      },
+	      "description": "API"
+    }
+  ],
+  "sendWelcomeFileRedirect": true,
+  "authenticationMethod": "none"
+}
