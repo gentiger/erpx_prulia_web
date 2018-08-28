@@ -16,7 +16,7 @@
 							<l:BlockLayoutRow class="mainMenu">
 								<l:BlockLayoutCell 
 										class="mainPageContent sapUiNoContentPadding">
-									<l:Grid defaultSpan="L4 M4 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
+									<l:Grid defaultSpan="L3 M6 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
 										<GenericTile
 											frameType="OneByOne" press="handlePresidentMessagePress" headerImage="sap-icon://pu/president" header="&#xA;" subheader="President's message">
 										</GenericTile>
@@ -26,12 +26,12 @@
 										<GenericTile
 											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/membership" header="&#xA;" subheader="Membership">
 										</GenericTile>
-										<GenericTile
+										<!-- <GenericTile
 											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/training" header="&#xA;" subheader="Training">
 										</GenericTile>
 										<GenericTile
 											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
-										</GenericTile>
+										</GenericTile> -->
 										<GenericTile
 											frameType="OneByOne" press="handlePhotoAlbumPress" headerImage="sap-icon://pu/photoalbum" header="&#xA;" subheader="Photo Album">
 										</GenericTile>
@@ -48,9 +48,9 @@
 									
 									<HeaderContainer id="newsContainer" scrollStep="200" showDividers="false" content="{News>/}">
 										<GenericTile
-											backgroundImage="{News>image}"
+											backgroundImage="{News>news_image}"
 											frameType="TwoByOne" press="handleAboutMessagePress" class="mainImageTile">
-											<TileContent footer="{News>date}">
+											<TileContent footer="{News>publish_date}">
 												<NewsContent
 													contentText="{News>title}"/>
 											</TileContent>
@@ -73,13 +73,13 @@
 									
 								</l:BlockLayoutCell>
 								<l:BlockLayoutCell titleAlignment="Left"
-										title="Member Login" visible="{=!${member>/memberLogon}}">
+										title="Member Login" visible="{=!${login>/memberLogon}}">
 									<VBox>
 										<f:SimpleForm
 											editable="true"
 											layout="ResponsiveGridLayout" >
 											<f:content>
-												<Label text="Username" />
+												<Label text="PRULIA ID" />
 												<Input id="idIptUsername"/>
 												<Label text="Password" />
 												<Input type="Password" id="idIptPassword">
@@ -91,14 +91,11 @@
 											alignItems="Center"
 											justifyContent="End">
 											<items>
-												<Link text="First &amp; Forgot Password?" class="sapUiSmallMarginEnd" />
+												<Link text="First &amp; Forgot Password?" class="sapUiSmallMarginEnd" press="handleForgotPasswordPress" />
 												<Button text="Login" press="handleLoginPress"/>
 											</items>
 										</FlexBox>
 									</VBox>
-								</l:BlockLayoutCell>
-								<l:BlockLayoutCell titleAlignment="Left"
-										title="Member Area" visible="{=${member>/memberLogon}}">
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
 							<l:BlockLayoutRow>

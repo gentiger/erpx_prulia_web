@@ -8,8 +8,9 @@ sap.ui.define([
 	'sap/m/Input',
 	'sap/m/MessageToast',
 	"sap/ui/core/routing/History",
+	"com/erpx/site/prulia/PRULIA/utils/Login",
 	"com/erpx/site/prulia/PRULIA/utils/Member"
-], function (Controller, Popover, Button, Dialog, SimpleForm, Label, Input, MessageToast, History, memberUtils) {
+], function (Controller, Popover, Button, Dialog, SimpleForm, Label, Input, MessageToast, History, Login, Member) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.App", {
@@ -22,12 +23,25 @@ sap.ui.define([
 		onInit: function() {
 			
 			// set the user model
-			this.getView().setModel(memberUtils.createMemberModel(), "member");
-			
+			this.getView().setModel(Login.getLoginModel(), "login");
+			this.getView().setModel(Login.getMemberModel(), "member");
 			this.getOwnerComponent().getModel("appParam").setData({
-				busy: false,
+				busy: true,
 				showBack: false
 			});
+
+			Login.check_if_cookie_valid(function(){
+				Login.readMemberDetails(function(){
+					MessageToast.show("Welcome Back!");
+					this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+				}.bind(this), function(){
+					this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+				}.bind(this));
+				// this.getView().setModel(new Member().getModel(),"member");
+			}.bind(this), 
+			function(){
+				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+			}.bind(this));
 		},
 
 		/**
@@ -44,9 +58,9 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf com.erpx.site.prulia.PRULIA.view.App
 		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
+		// onAfterRendering: function() {
+			
+		// },
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
@@ -86,9 +100,16 @@ sap.ui.define([
 						text: 'Logout',
 						type: sap.m.ButtonType.Transparent,
 						press: function(oEvent){
-							memberUtils.logoutMember()
+							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+							Login.logout(function(){
+								MessageToast.show("Member successfully logout");
+								this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+							}.bind(this),
+							function(){
+								this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+							}.bind(this))
 							popover.close();
-						}
+						}.bind(this)
 					})
 				]
 			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
@@ -115,8 +136,8 @@ sap.ui.define([
 		},
 		
 		handleLoginPress: function () {
-			if (!this.pressDialog) {
-				this.pressDialog = new Dialog({
+			if (!this.loginDialog) {
+				this.loginDialog = new Dialog({
 					title: 'Member Login',
 					stretch: this.getOwnerComponent().getModel("device").getProperty("/system/phone"),      
 					content: new SimpleForm({
@@ -132,33 +153,48 @@ sap.ui.define([
 							}),
 							new Input("memberLogin-Password", {
 								type:"Password"
+							}),
+							new sap.m.Link({text:"First & Forgot Password", press: function(){
+									this.loginDialog.close();
+									this.handleForgotPasswordPress();
+								}.bind(this)
 							})
 						]
 					}),
 					beginButton: new Button({
 						text: 'Login',
 						press: function (oEvent) {
-							memberUtils.loginMember(sap.ui.getCore().byId("memberLogin-Username").getValue(), sap.ui.getCore().byId("memberLogin-Password").getValue());
-							this.pressDialog.close();
+							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+							Login.login(
+								sap.ui.getCore().byId("memberLogin-Username").getValue(), 
+								sap.ui.getCore().byId("memberLogin-Password").getValue(), 
+								function(){
+									MessageToast.show("Member successfully login");
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this), function(){
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this));
+							this.loginDialog.close();
 							// MessageToast.show("User successful login");
 						}.bind(this)
 					}),
 					endButton: new Button({
 						text: 'Cancel',
 						press: function () {
-							this.pressDialog.close();
+							this.loginDialog.close();
 						}.bind(this)
 					}),
 					afterClose: function(){
-						
+						this.loginDialog.destroy();
+						this.loginDialog = undefined;
 					}.bind(this)
 				});
 
 				//to get access to the global model
-				this.getView().addDependent(this.pressDialog);
+				this.getView().addDependent(this.loginDialog);
 			}
 
-			this.pressDialog.open();
+			this.loginDialog.open();
 		},
 		
 		
@@ -181,7 +217,10 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("Main", {}, true);
 			}
-		}
+		},
+		handleForgotPasswordPress: function () {
+			Login.open_forget_password_dialog(this);
+		},
 	});
 
 });

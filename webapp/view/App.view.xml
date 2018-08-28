@@ -7,7 +7,7 @@
 						icon="sap-icon://menu2"
 						type="Transparent"
 						press="onSideNavButtonPress"
-						visible="{=${device>/system/phone} &amp;&amp; ${member>/memberLogon}===true}">
+						visible="{=${device>/system/phone} &amp;&amp; ${login>/memberLogon}===true}">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
@@ -19,17 +19,17 @@
 				</Button>
 				<ToolbarSpacer width="20px" />
 				<Button icon="css/images/PruliaImage.png" iconDensityAware="false" type="Transparent" press="handleHomeSelect"/>
-				<Button text="News" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${member>/memberLogon}===true}" press="handleNewsSelect">
+				<Button text="News" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleNewsSelect">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="Events" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${member>/memberLogon}===true}" press="handleNewsSelect">
+				<Button text="Events" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleNewsSelect">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="Smart Partners" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${member>/memberLogon}===true}" press="handleNewsSelect">
+				<Button text="Smart Partners" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleNewsSelect">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
@@ -41,12 +41,12 @@
 					</layoutData>
 				</ToolbarSpacer>
 				<Button icon="sap-icon://fa/facebook" type="Transparent" press="handleFacebookPress" visible="{=!${device>/system/phone}}"></Button>
-				<Button text="Member Login" visible="{=!${member>/memberLogon}}" type="Transparent" press="handleLoginPress" >
+				<Button text="Member Login" visible="{=!${login>/memberLogon}}" type="Transparent" press="handleLoginPress" >
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>
 				</Button>
-				<Button text="Welcome, {member>/memberName}" visible="{member>/memberLogon}" type="Transparent" press="handleUserNamePress" >
+				<Button text="Welcome, {member>/name}" visible="{login>/memberLogon}" type="Transparent" press="handleUserNamePress" >
 					<layoutData>
 						<OverflowToolbarLayoutData priority="NeverOverflow" />
 					</layoutData>

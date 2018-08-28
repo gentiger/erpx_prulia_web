@@ -3,7 +3,7 @@ sap.ui.define([
 	"use strict";
 
 	return {
-		serverURL : "",
+		serverURL : ""
 
 	};
 });

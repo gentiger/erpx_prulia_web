@@ -139,9 +139,9 @@
 
 
 .pruliaMain .mainImageTile{
-	background-size:     cover;
+	background-size:     contain;
     background-repeat:   no-repeat;
-    background-position: right;
+    background-position: center top;
 }
 
 .aboutImage{
