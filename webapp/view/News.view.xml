@@ -1,0 +1,38 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:custom="com.erpx.site.prulia.PRULIA.custom"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.News" xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page showHeader="false" displayBlock="true">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="News">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="mainMenu">
+						<l:BlockLayoutCell 
+								class="mainPageContent genericTile sapUiNoContentPadding">
+							<l:Grid defaultSpan="L4 M6 S12" class="sapUiNoContentPadding sapUiSmallMarginTop" content="{News>/}" hSpacing="0">
+								<GenericTile
+									frameType="TwoByOne" press="handleNewsTilePress" backgroundImage="{News>news_image}" class="genericTileImage">
+									<TileContent footer="{News>publish_date}">
+										<NewsContent
+											contentText="{News>title}"/>
+									</TileContent>
+								</GenericTile>
+							</l:Grid>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

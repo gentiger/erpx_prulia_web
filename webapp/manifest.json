@@ -70,9 +70,6 @@
 			"css": [
 				{
 					"uri": "css/style.css"
-				},
-				{
-					"uri": "css/style2.css"
 				}
 			]
 		},
@@ -123,19 +120,14 @@
 					"target": "Membership"
 				},
 				{
-					"pattern": "usefullink",
-					"name": "UsefulLink",
-					"target": "UsefulLinks"
+					"pattern": "news",
+					"name": "News",
+					"target": "News"
 				},
 				{
-					"pattern": "main2",
-					"name": "Main2",
-					"target": "Main2"
-				},
-				{
-					"pattern": "main3",
-					"name": "Main3",
-					"target": "Main3"
+					"pattern": "newsdetail/{newsid}",
+					"name": "NewsDetail",
+					"target": "NewsDetail"
 				}
 			],
 			"targets": {
@@ -199,16 +191,6 @@
 					"controlId": "idAppControl",
 					"clearControlAggregation": false
 				},
-				"UsefulLinks": {
-					"viewType": "XML",
-					"viewName": "UsefulLinks",
-					"routerClass": "sap.m.routing.Router",
-					"async": true,
-					"viewPath": "com.erpx.site.prulia.PRULIA.view",
-					"controlAggregation": "pages",
-					"controlId": "idAppControl",
-					"clearControlAggregation": false
-				},
 				"Membership": {
 					"viewType": "XML",
 					"viewName": "Membership",
@@ -219,9 +201,9 @@
 					"controlId": "idAppControl",
 					"clearControlAggregation": false
 				},
-				"Main2": {
+				"News": {
 					"viewType": "XML",
-					"viewName": "Main2",
+					"viewName": "News",
 					"routerClass": "sap.m.routing.Router",
 					"async": true,
 					"viewPath": "com.erpx.site.prulia.PRULIA.view",
@@ -229,9 +211,15 @@
 					"controlId": "idAppControl",
 					"clearControlAggregation": false
 				},
-				"Main3": {
+				"NewsDetail": {
 					"viewType": "XML",
-					"viewName": "Main3"
+					"viewName": "NewsDetail",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
 				}
 			}
 		}

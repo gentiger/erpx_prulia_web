@@ -1,29 +1,29 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
-	"com/erpx/site/prulia/PRULIA/utils/Login",
-	"com/erpx/site/prulia/PRULIA/utils/News"
+	"com/erpx/site/prulia/PRULIA/utils/Login"
 ], function (Controller, MessageToast, Login, News) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.Main", {
 		
 		onInit: function(){
+			
+			
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("Main").attachPatternMatched(this._onObjectMatched, this);
+		},
+		_onObjectMatched: function (oEvent) {
+			this.getOwnerComponent().getModel("appParam").setProperty("/showBack", false);
 			this.getView().byId("newsContainer").setBusy(true);
-			var oNews = new News(function(){
-				this.getView().setModel(oNews.getTop5Model(),"News");
+			var oNews = this.getOwnerComponent().getNewsInstance().getTop5Model(function(){
+				this.getView().setModel(oNews,"News");
 				this.getView().byId("newsContainer").setBusy(false);
 			}.bind(this),
 			function(error){
 				this.getView().byId("newsContainer").setBusy(false);
 				console.log(error);
 			}.bind(this))
-			
-			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.getRoute("Main").attachPatternMatched(this._onObjectMatched, this);
-		},
-		_onObjectMatched: function (oEvent) {
-			this.getView().getModel("appParam").setProperty("/showBack", false);
 		},
 		
 		onPress: function(){
@@ -65,6 +65,19 @@ sap.ui.define([
 		},
 		handleForgotPasswordPress: function () {
 			Login.open_forget_password_dialog(this);
+		},
+		handleNewsPress: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("News");
+		},
+		handleNewsTilePress: function(oEvent){
+			var oNewsTileObject = oEvent.getSource().getBindingContext("News").getObject();
+			if(oNewsTileObject.type==="Link"){
+				window.open(oNewsTileObject.link)
+			} else {
+				sap.ui.core.UIComponent.getRouterFor(this).navTo("NewsDetail", {
+					newsid: oNewsTileObject.name
+				});
+			}
 		}
 	});
 });

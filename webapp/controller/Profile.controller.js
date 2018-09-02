@@ -1,6 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageToast",
+	"com/erpx/site/prulia/PRULIA/utils/Login"
+], function (Controller, JSONModel, MessageToast, Login) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.Profile", {
@@ -10,9 +13,11 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf com.erpx.site.prulia.PRULIA.view.Profile
 		 */
-		//	onInit: function() {
-		//
-		//	},
+		onInit: function() {
+			this.getView().setModel(new JSONModel({
+				editPersonal: false
+			}),"profileParam");
+		},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -39,6 +44,22 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
+
+		changeEditMode: function(){
+			var oModel = this.getView().getModel("profileParam");
+			oModel.setProperty("/editPersonal", !oModel.getProperty("/editPersonal"))
+		},
+
+		updateEventPref: function(){
+			this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+			Login.updateMemberDetails(function(){
+				MessageToast.show("Perferences was update successfully");
+				this.changeEditMode();
+				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+			}.bind(this), function(){
+				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+			}.bind(this))
+		}
 
 	});
 

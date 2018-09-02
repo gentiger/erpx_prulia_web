@@ -80,9 +80,14 @@ sap.ui.define([
 						text: 'Profile',
 						type: sap.m.ButtonType.Transparent,
 						press: function(oEvent){
-							sap.ui.core.UIComponent.getRouterFor(that).navTo("About");
+							sap.ui.core.UIComponent.getRouterFor(that).navTo("Profile");
 							popover.close();
 						}
+					}),
+					new Button({
+						text: 'Change Password',
+						type: sap.m.ButtonType.Transparent,
+						press: this.handleChangePasswordPress.bind(this)
 					}),
 					new Button({
 						text: 'Feedback',
@@ -92,10 +97,6 @@ sap.ui.define([
 							popover.close();
 						}
 					}),
-					// new Button({
-					// 	text: 'Help',
-					// 	type: sap.m.ButtonType.Transparent
-					// }),
 					new Button({
 						text: 'Logout',
 						type: sap.m.ButtonType.Transparent,
@@ -129,7 +130,7 @@ sap.ui.define([
 		},
 		
 		handleNewsSelect: function(event){
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("About");
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("News");
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
 			toolPage.setSideExpanded(false);
@@ -138,7 +139,7 @@ sap.ui.define([
 		handleLoginPress: function () {
 			if (!this.loginDialog) {
 				this.loginDialog = new Dialog({
-					title: 'Member Login',
+					title: 'Change Password',
 					stretch: this.getOwnerComponent().getModel("device").getProperty("/system/phone"),      
 					content: new SimpleForm({
 						editable:true,
@@ -220,6 +221,64 @@ sap.ui.define([
 		},
 		handleForgotPasswordPress: function () {
 			Login.open_forget_password_dialog(this);
+		},
+		handleChangePasswordPress: function () {
+			if (!this.changePasswordDialog) {
+				this.changePasswordDialog = new Dialog({
+					title: 'Change Password',
+					stretch: this.getOwnerComponent().getModel("device").getProperty("/system/phone"),      
+					content: new SimpleForm({
+						editable:true,
+						layout:"ResponsiveGridLayout",
+						content: [
+							new Label({
+								text: "Current Password"
+							}),
+							new Input("changePassword-CurrPass", {
+								type:"Password"
+							}),
+							new Label({
+								text: "New Password"
+							}),
+							new Input("changePassword-NewPass", {
+								type:"Password"
+							})
+						]
+					}),
+					beginButton: new Button({
+						text: 'Update Password',
+						press: function (oEvent) {
+							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+							Login.changePassword(
+								sap.ui.getCore().byId("changePassword-CurrPass").getValue(), 
+								sap.ui.getCore().byId("changePassword-NewPass").getValue(), 
+								function(){
+									MessageToast.show("Member successfully login");
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this), function(){
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this));
+							this.changePasswordDialog.close();
+							// MessageToast.show("User successful login");
+						}.bind(this)
+					}),
+					endButton: new Button({
+						text: 'Cancel',
+						press: function () {
+							this.changePasswordDialog.close();
+						}.bind(this)
+					}),
+					afterClose: function(){
+						this.changePasswordDialog.destroy();
+						this.changePasswordDialog = undefined;
+					}.bind(this)
+				});
+
+				//to get access to the global model
+				this.getView().addDependent(this.changePasswordDialog);
+			}
+
+			this.changePasswordDialog.open();
 		},
 	});
 

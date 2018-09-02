@@ -192,9 +192,10 @@ sap.ui.define([
           						onClose: function(oAction){
           							if(oAction === "OK"){
           								window.open("http://103.253.146.122/member-registration/");
+          								// window.open("http://127.0.0.1:8000/member-registration/")
           							}
           							
-									// window.open("http://127.0.0.1:8000/member-registration/")
+									
 								}
 							}
 						);
@@ -207,8 +208,7 @@ sap.ui.define([
 		},
 		readMemberDetails: function(fnSuccess, fnError){
 			$.get(Config.serverURL + '/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.mobile_member_login', function(data, status, xhr){
-				this._loginModel.setProperty("/memberLogon", true);
-				this._memberModel.setData(data.message);
+				this.setMemberModel(data.message);
 				if(fnSuccess){
 					fnSuccess();
 				}
@@ -225,7 +225,73 @@ sap.ui.define([
 				}
 			    
 			}.bind(this));
-		}
+		},
+		setMemberModel: function(memberData){
+			this._loginModel.setProperty("/memberLogon", true);
+			if(memberData.profile_photo.indexOf("/files/") === 0){
+		// 		// data.message.profile_photo = Config.serverURL + data.message.profile_photo;
+				memberData.profile_photo = "http://localhost:8000" + memberData.profile_photo;
+			}
+			this._memberModel.setData(memberData);
+		},
+		updateMemberDetails: function(fnSuccess, fnError){
+			$.ajax({
+			 	type: "POST",
+			  	url: Config.serverURL + '/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.update_member_pref',
+			  	data: this._memberModel.getJSON(),
+			  	success: function(data, status, xhr){
+			  		this.setMemberModel(data.message);
+			  		if(fnSuccess){
+						fnSuccess();
+					}
+			  		// this.readMemberDetails(fnSuccess, fnError);
+					// var cookie_source = xhr.getResponseHeader('Set-Cookie');
+					// this.readMemberDetails(function(){
+					// 	MessageToast.show("Member successfully login");
+					// });
+					}.bind(this),
+			  	dataType: 'json',
+			  	contentType: 'application/json',
+			  	error: function(error) {
+					// debugger;
+					this.readMemberDetails();
+					if(fnError){
+						fnError();
+					}
+					if(error.responseJSON && error.responseJSON._server_messages){
+						ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
+					} else if(error.responseJSON && error.responseJSON.message){
+						ErrorHandler.showErrorMessage(error.responseJSON.message);
+					} else {
+						ErrorHandler.showErrorMessage(null,error);
+						console.log(error); // or whatever
+					}
+				}.bind(this)
+			})
+		},
+		changePassword: function(currentPassword, newPassword, fnSuccess, fnError){
+			/*Setup Frappe Cookie*/
+			
+			$.post(Config.serverURL + '/api/method/frappe.core.doctype.user.user.update_password',
+				{ old_password: currentPassword, new_password: newPassword, logout_all_sessions: false }, function(data, status, xhr){
+					if(fnSuccess){
+						fnSuccess();
+					}
+					
+			}.bind(this)).fail(function(error) {
+				if(fnError){
+					fnError();
+				}
+				if(error.responseJSON && error.responseJSON._server_messages){
+					ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
+				} else if(error.responseJSON && error.responseJSON.message){
+					ErrorHandler.showErrorMessage(error.responseJSON.message);
+				} else {
+					ErrorHandler.showErrorMessage(null,error);
+					console.log(error); // or whatever
+				}
+			}.bind(this));
+		},
 
 
 

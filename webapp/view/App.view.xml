@@ -24,12 +24,12 @@
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="Events" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleNewsSelect">
+				<Button text="Events" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleEventSelect">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="Smart Partners" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleNewsSelect">
+				<Button text="Smart Partners" type="Transparent" visible="{=${device>/system/phone}!==true &amp;&amp; ${login>/memberLogon}===true}" press="handleSmartPartnerSelect">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
@@ -70,12 +70,12 @@
 					<tnt:NavigationListItem text="Event"
 											icon="sap-icon://badge"
 											key="home"
-											select="handleNewsSelect">
+											select="handlEventSelect">
 					</tnt:NavigationListItem>
 					<tnt:NavigationListItem text="Smart Partner"
 											icon="sap-icon://group"
 											key="home"
-											select="handleNewsSelect">
+											select="handleSmarPartnerSelect">
 					</tnt:NavigationListItem>
 				</tnt:NavigationList>
 			</tnt:SideNavigation>

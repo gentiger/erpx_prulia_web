@@ -1,42 +1,192 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" controllerName="com.erpx.site.prulia.PRULIA.controller.Profile"
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uxap="sap.uxap" controllerName="com.erpx.site.prulia.PRULIA.controller.Profile"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
-		<headerTitle>
-			<ObjectPageHeader objectImageURI="http://103.253.146.122/files/President.jpg"
-							  objectTitle="Mani Raja Chandran"
+	<!-- <Page showHeader="false">
+		<content>
+			<l:BlockLayout>
+				<l:BlockLayoutRow visible="{device>/system/phone}">
+					<l:BlockLayoutCell>
+						<FlexBox
+							alignItems="Center"
+							justifyContent="Center">
+							<items>
+								<f:Avatar
+									src="{member>/profile_photo}"
+									displaySize="XL">
+								</f:Avatar>
+							</items>
+						</FlexBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell class="mainPageContentLeft">
+						<VBox>
+							<Text text="{member>/full_name}" class="nameText"/>
+							<Text text="{member>/prudential_id}" class="idText"/>
+						</VBox>
+					</l:BlockLayoutCell>
+					<l:BlockLayoutCell class="mainPageContentRight" visible="{=!${device>/system/phone}}">
+						<FlexBox
+							alignItems="Center"
+							justifyContent="Center">
+							<items>
+								<f:Avatar
+									src="{member>/profile_photo}"
+									displaySize="XL">
+								</f:Avatar>
+							</items>
+						</FlexBox>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+				<l:BlockLayoutRow>
+					<l:BlockLayoutCell class="mainPageContent">
+						<form:SimpleForm
+							editable="false"
+							layout="ResponsiveGridLayout"
+							title="Address"
+							labelSpanXL="3"
+							labelSpanL="3"
+							labelSpanM="3"
+							labelSpanS="12"
+							adjustLabelSpan="false"
+							emptySpanXL="4"
+							emptySpanL="4"
+							emptySpanM="4"
+							emptySpanS="0"
+							columnsXL="1"
+							columnsL="1"
+							columnsM="1"
+							singleContainerFullSize="false" >
+							<form:content>
+								<Label text="NRIC Number" />
+								<Text text="{member>/nric_number}" />
+								<Label text="Gender" />
+								<Text text="{member>/gender}" />
+								<Label text="Mobile No" />
+								<Text text="{member>/cell_number}" />
+							</form:content>
+						</form:SimpleForm>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+		</content>
+	</Page> -->
+	<uxap:ObjectPageLayout id="ObjectPageLayout" 
+		enableLazyLoading="false"
+		showTitleInHeaderContent="true"
+		showFooter="{profileParam>/editPersonal}">
+		<uxap:headerTitle>
+			<uxap:ObjectPageHeader objectImageURI="{member>/profile_photo}"
+							  objectTitle="{member>/full_name}"
 							  objectImageShape="Circle"
-							  objectImageAlt="Mani Raja Chandran"
-							  isObjectIconAlwaysVisible="true"
-							  objectSubtitle="PRU1122334455">
-			</ObjectPageHeader>
-		</headerTitle>
+							  objectImageAlt="{member>/full_name}"
+							  isObjectIconAlwaysVisible="false"
+							  isObjectTitleAlwaysVisible="false"
+							  isObjectSubtitleAlwaysVisible="false"
+							  objectSubtitle="{member>/prudential_id}">
+			</uxap:ObjectPageHeader>
+		</uxap:headerTitle>
 
-		<headerContent>
-			<layout:HorizontalLayout>
+		<!-- <uxap:headerContent>
+			<l:HorizontalLayout>
 				<core:Icon src="sap-icon://phone"></core:Icon>
-				<m:Link text="019-2115977"/>
-			</layout:HorizontalLayout>
-			<layout:HorizontalLayout>
+				<Link text="019-2115977"/>
+			</l:HorizontalLayout>
+			<l:HorizontalLayout>
 				<core:Icon src="sap-icon://email"></core:Icon>
-				<m:Link text="maniraja.c@gmail.com"/>
-			</layout:HorizontalLayout>
+				<Link text="maniraja.c@gmail.com"/>
+			</l:HorizontalLayout>
 
-		</headerContent>
+		</uxap:headerContent> -->
 
-		<!--<sections>-->
-		<!--	<ObjectPageSection title="Personal">-->
-		<!--		<subSections>-->
-		<!--			<ObjectPageSubSection title=" ">-->
-		<!--				<blocks>-->
-		<!--					<personal:PersonalFormBlock id="personalinfo" columnLayout="4"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt1"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt2"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt3"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt4"/>-->
-		<!--				</blocks>-->
-		<!--			</ObjectPageSubSection>-->
-		<!--		</subSections>-->
-		<!--	</ObjectPageSection>-->
+		<uxap:sections>
+			<uxap:ObjectPageSection title="Personal Information" titleUppercase="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection title="" >
+						<uxap:blocks>
+							<form:SimpleForm
+								editable="false"
+								labelSpanL="4" labelSpanM="4"
+					  			labelSpanS="4" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+					  			maxContainerCols="2" layout="ResponsiveGridLayout" width="100%" singleContainerFullSize="false">
+								<form:content>
+									<Label text="NRIC Number" />
+									<Text text="{member>/nric_number}" />
+									<Label text="Gender" />
+									<Text text="{member>/gender}" />
+									<Label text="Mobile No" />
+									<Text text="{member>/cell_number}" />
+									<Label text="Email" />
+									<Text text="{member>/email}" />
+								</form:content>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Prudential Information" titleUppercase="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm
+								labelSpanL="4" labelSpanM="4"
+					  			labelSpanS="4" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+					  			maxContainerCols="2" layout="ResponsiveGridLayout" width="100%" singleContainerFullSize="false">
+								<form:content>
+									<Label text="Position" />
+									<Text text="{member>/position}" />
+									<Label text="Branch" />
+									<Text text="{member>/branch}" />
+									<Label text="Region" />
+									<Text text="{member>/region}" />
+								</form:content>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="Event Perferences" titleUppercase="false">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<VBox>
+								<form:SimpleForm
+									labelSpanL="4" labelSpanM="4"
+						  			labelSpanS="4" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+						  			maxContainerCols="2" layout="ResponsiveGridLayout" width="100%" singleContainerFullSize="false"
+						  			editable="{profileParam>/editPersonal}">
+									<form:content>
+										<Label text="Meal Option" />
+										<Text text="{member>/meal_option}" visible="{=${profileParam>/editPersonal}!==true}"/>
+										<Label text="Meal Option" />
+										<Select selectedKey="{member>/meal_option}" visible="{profileParam>/editPersonal}">
+											<items>
+												<core:Item key="Non-Vegetarian" text="Non-Vegetarian" />
+												<core:Item key="Vegetarian" text="Vegetarian" />
+											</items>
+										</Select>
+										
+										<Label text="Shirt Size" />
+										<Text text="{member>/shirt_size}" visible="{=${profileParam>/editPersonal}!==true}"/>
+										<Label text="Shirt Size" />
+										<Select selectedKey="{member>/shirt_size}" visible="{profileParam>/editPersonal}">
+											<items>
+												<core:Item key="XS" text="Extra Small (XS)" />
+												<core:Item key="S" text="Small (S)" />
+												<core:Item key="M" text="Medium (M)" />
+												<core:Item key="L" text="Large (L)" />
+												<core:Item key="XL" text="Extra Large (XL)" />
+												<core:Item key="XXL" text="Double Extra Large (XXL)" />
+												<core:Item key="XXXL" text="Triple Extra Large (XXXL)" />
+											</items>
+										</Select>
+									</form:content>
+								</form:SimpleForm>
+								<Button text="Update" press="changeEditMode" visible="{=${profileParam>/editPersonal}!==true}"/>
+							</VBox>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
 
 		<!--	<ObjectPageSection title="Employment">-->
 		<!--		<subSections>-->
@@ -51,6 +201,18 @@
 		<!--			</ObjectPageSubSection>-->
 		<!--		</subSections>-->
 		<!--	</ObjectPageSection>-->
-		<!--</sections>-->
-	</ObjectPageLayout>
+		</uxap:sections>
+		<uxap:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				
+				<Button text="Cancel" press="changeEditMode">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button type="Emphasized" text="Update Event Perferences" press="updateEventPref">
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+			</OverflowToolbar>
+		</uxap:footer>
+	</uxap:ObjectPageLayout>
 </mvc:View>

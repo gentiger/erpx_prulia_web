@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
 	"com/erpx/site/prulia/PRULIA/model/models",
-	"sap/ui/core/IconPool"
-], function (UIComponent, Device, models, IconPool) {
+	"sap/ui/core/IconPool",
+	"com/erpx/site/prulia/PRULIA/utils/News"
+], function (UIComponent, Device, models, IconPool, News) {
 	"use strict";
 
 	return UIComponent.extend("com.erpx.site.prulia.PRULIA.Component", {
@@ -11,6 +12,8 @@ sap.ui.define([
 		metadata: {
 			manifest: "json"
 		},
+
+		_news: undefined,
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
@@ -61,6 +64,15 @@ sap.ui.define([
 		        fontFamily : "public-font-icons",
 		        content : "EB99" 
     		});
+
+    		
+		},
+
+		getNewsInstance: function(fnSuccess, fnError){
+			if(this._news === undefined){
+				this._news = new News()
+			}
+			return this._news;
 		}
 	});
 });

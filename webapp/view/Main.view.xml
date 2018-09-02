@@ -49,7 +49,7 @@
 									<HeaderContainer id="newsContainer" scrollStep="200" showDividers="false" content="{News>/}">
 										<GenericTile
 											backgroundImage="{News>news_image}"
-											frameType="TwoByOne" press="handleAboutMessagePress" class="mainImageTile">
+											frameType="TwoByOne" press="handleNewsTilePress" class="mainImageTile">
 											<TileContent footer="{News>publish_date}">
 												<NewsContent
 													contentText="{News>title}"/>
@@ -57,7 +57,7 @@
 										</GenericTile>
 									</HeaderContainer>
 									<HBox width="100%" justifyContent="End">
-										<Button icon="sap-icon://navigation-right-arrow" text="More News" type="Transparent" press="handleAboutMessagePress"></Button>
+										<Button icon="sap-icon://navigation-right-arrow" text="More News" type="Transparent" press="handleNewsPress"></Button>
 									</HBox>
 									
 								</l:BlockLayoutCell>
@@ -96,6 +96,25 @@
 											</items>
 										</FlexBox>
 									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow class="contactRow">
+								<l:BlockLayoutCell
+										titleAlignment="Left"
+										title="Contact Us"
+										backgroundColorSet="ColorSet2" 
+										backgroundColorShade="ShadeA"
+										class="contactCell startingText mainPageContent  startingMiddleText">
+									<VBox>
+										<items>
+											<Text text="Should you have any problem with your membership app login please email to " class="startingText "/>
+											<HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+												<core:Icon src="sap-icon://letter" size="2.5rem" class="sapUiMediumMarginTop sapUiSmallMarginEnd contactEmailText"  />
+												<Link text="support@prulia.com.my" class="sapUiMediumMarginTop  contactEmailText startingText" />
+											</HBox>
+										</items>
+									</VBox>
+									
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
 							<l:BlockLayoutRow>
