@@ -14,9 +14,6 @@ sap.ui.define([
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.getRoute("News").attachPatternMatched(this._onObjectMatched, this);
-
-			
-
 		},
 		_onObjectMatched: function (oEvent) {
 			this.getOwnerComponent().getModel("appParam").setProperty("/showBack", true);

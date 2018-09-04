@@ -17,6 +17,23 @@ sap.ui.define([
 			this.getView().setModel(new JSONModel({
 				editPersonal: false
 			}),"profileParam");
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.getRoute("Profile").attachPatternMatched(this._onObjectMatched, this);
+		},
+		_onObjectMatched: function (oEvent) {
+			this.getView().bindElement({
+				path: "/", 
+				model: "member",
+				events : {
+					change: this._onBindingChange.bind(this),
+				}
+			});
+		},
+		_onBindingChange : function (oEvent) {
+			// No data for the binding
+			if (this.getView().getElementBinding("member").getModel().getProperty("/full_name") === undefined) {
+				sap.ui.core.UIComponent.getRouterFor(this).getTargets().display("notFound");
+			}
 		},
 
 		/**

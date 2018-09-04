@@ -229,8 +229,8 @@ sap.ui.define([
 		setMemberModel: function(memberData){
 			this._loginModel.setProperty("/memberLogon", true);
 			if(memberData.profile_photo.indexOf("/files/") === 0){
-		// 		// data.message.profile_photo = Config.serverURL + data.message.profile_photo;
-				memberData.profile_photo = "http://localhost:8000" + memberData.profile_photo;
+				memberData.profile_photo = Config.serverURL + memberData.profile_photo;
+				// memberData.profile_photo = "http://localhost:8000" + memberData.profile_photo;
 			}
 			this._memberModel.setData(memberData);
 		},

@@ -74,8 +74,8 @@ sap.ui.define([
           if(data.message[i].news_image === null){
             data.message[i].news_image = 'css/images/PruliaImage.png'
           } else if(data.message[i].news_image.indexOf("/files/") === 0){
-      //    // data.message.profile_photo = Config.serverURL + data.message.profile_photo;
-            data.message[i].news_image = "http://localhost:8000" + data.message[i].news_image;
+            data.message[i].news_image = Config.serverURL + data.message[i].news_image;
+            // data.message[i].news_image = "http://localhost:8000" + data.message[i].news_image;
           } 
         }
         

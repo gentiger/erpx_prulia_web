@@ -75,14 +75,14 @@
 		showTitleInHeaderContent="true"
 		showFooter="{profileParam>/editPersonal}">
 		<uxap:headerTitle>
-			<uxap:ObjectPageHeader objectImageURI="{member>/profile_photo}"
-							  objectTitle="{member>/full_name}"
+			<uxap:ObjectPageHeader objectImageURI="{member>profile_photo}"
+							  objectTitle="{member>full_name}"
 							  objectImageShape="Circle"
-							  objectImageAlt="{member>/full_name}"
+							  objectImageAlt="{member>full_name}"
 							  isObjectIconAlwaysVisible="false"
 							  isObjectTitleAlwaysVisible="false"
 							  isObjectSubtitleAlwaysVisible="false"
-							  objectSubtitle="{member>/prudential_id}">
+							  objectSubtitle="{member>prudential_id}">
 			</uxap:ObjectPageHeader>
 		</uxap:headerTitle>
 
