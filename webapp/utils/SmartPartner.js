@@ -11,8 +11,8 @@ sap.ui.define([
       this.model = new JSONModel();
       
     },
-    updateModel(fnSuccess, fnError){
-      $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_banner.prulia_banner.get_banner', function(data, status, xhr){
+    updateModel: function(fnSuccess, fnError){
+      $.get('/api/method/erpx_prulia.prulia_news.doctype.prulia_banner.prulia_banner.get_banner', function(data, status, xhr){
         for(var i = 0; i < data.message.length; i++){
           if(data.message[i].image === null){
             data.message[i].image = 'css/images/PruliaImage.png'
