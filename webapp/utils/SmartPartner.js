@@ -26,7 +26,7 @@ sap.ui.define([
       return oDeferred.promise();
     },
     updateSmartPartnerModel: function(fnSuccess, fnError){
-      $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_banner.prulia_banner.get_banner', function(data, status, xhr){
+      $.get('/api/method/erpx_prulia.prulia_news.doctype.prulia_banner.prulia_banner.get_banner', function(data, status, xhr){
           var oSmartPartnerItem = [];
           if(data.message !== undefined){
             oSmartPartnerItem = data.message;

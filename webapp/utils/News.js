@@ -40,7 +40,7 @@ sap.ui.define([
       return oDeferred.promise();
     },
     updateNewsModel: function(fnSuccess, fnError){
-      $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_newsletter.prulia_newsletter.get_newsletter_list', function(data, status, xhr){
+      $.get('/api/method/erpx_prulia.prulia_news.doctype.prulia_newsletter.prulia_newsletter.get_newsletter_list', function(data, status, xhr){
           var oNewsItem = [];
           if(data.message !== undefined){
             oNewsItem = data.message;
