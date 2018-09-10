@@ -215,7 +215,7 @@ sap.ui.define([
 		},
 		setMemberModel: function(memberData){
 			this._loginModel.setProperty("/memberLogon", true);
-			if(memberData.profile_photo.indexOf("/files/") === 0){
+			if(memberData.profile_photo !== undefined && memberData.profile_photo.indexOf("/files/") === 0){
 				if(Config.serverURL === "http://127.0.0.1:8080"){
 	              memberData.profile_photo = "http://127.0.0.1:8000" + memberData.profile_photo;
 	            } else {
