@@ -125,12 +125,12 @@
 													<FlexItemData growFactor="1" />
 												</layoutData>
 											</Image>
-											<Image src="css/icons/bmw-grey.png" densityAware="false" width="100%">
+											<Image src="css/icons/BMW-grey.png" densityAware="false" width="100%">
 												<layoutData>
 													<FlexItemData growFactor="1" />
 												</layoutData>
 											</Image>
-											<Image src="css/icons/volvo-grey.png" densityAware="false" width="100%">
+											<Image src="css/icons/Volvo-grey.png" densityAware="false" width="100%">
 												<layoutData>
 													<FlexItemData growFactor="1" />
 												</layoutData>
