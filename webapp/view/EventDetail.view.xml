@@ -1,0 +1,96 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:custom="com.erpx.site.prulia.PRULIA.custom" xmlns:form="sap.ui.layout.form"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.EventDetail" xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page showHeader="false" displayBlock="true">
+		<content>
+			<l:VerticalLayout width="100%">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell class="bannerCell">
+							<Text class="eventStatus eventRegistered" text="Registered" visible="{Event>register}"/>
+							<Text class="eventStatus eventOpenRegistration" text="Ready for Registration" visible="{=${Event>register} === false &amp;&amp; (${Event>event_status} === 'Open For Registration' || (${Event>event_status} === 'Publish' &amp;&amp; ${Event>show_open_for_registration} === 1))}"/>
+							<Text class="eventStatus eventClosedRegistration" text="Registration Closed" visible="{=${Event>register} === false &amp;&amp; ${Event>event_status} === 'Registration Closed'}"/>
+							<FlexBox
+								alignItems="Center"
+								direction="Column"
+								justifyContent="Center" class="imageMaxHeight">
+								<items>
+									
+									<Image src="{Event>event_image}" width="100%" densityAware="false" />
+								</items>
+							</FlexBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="contactRow">
+						<l:BlockLayoutCell class="mainPageContent"
+							backgroundColorSet="ColorSet2" 
+							backgroundColorShade="ShadeA">
+							<VBox >
+								<Text text="{Event>event_name}" class="newsTitle sapUiSmallMarginBottom"/>
+								<HBox class="titleContent">
+									<core:Icon src="sap-icon://history" class="sapUiMediumMarginBottom sapUiSmallMarginEnd" />
+									<Text text="{ parts : [ 'Event>start_date_time', 'Event>end_date_time' ], formatter: '.eventDateFormatter' }" />
+								</HBox>
+								<HBox class="titleContent">
+									<core:Icon src="sap-icon://map-2" class="sapUiSmallMarginEnd" />
+									<Text text="{Event>venue}" class=""/>
+								</HBox>
+								
+								
+							</VBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow >
+						<l:BlockLayoutCell class="mainPageContent"
+							backgroundColorSet="ColorSet10" 
+							backgroundColorShade="ShadeA">
+							<form:SimpleForm
+								labelSpanL="4" labelSpanM="4"
+					  			labelSpanS="5" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+					  			maxContainerCols="1" layout="ResponsiveGridLayout" width="100%" singleContainerFullSize="false"
+					  			editable="false" visible="{Event>register}">
+								<form:content>
+									<Title text="Registration Details" />
+									<Label text="Meal Option" />
+									<Text text="{Event>meal_option}"/>
+									<Label text="Shirt Size" visible="{=${Event>display_shirt_option} === 1}"/>
+									<Text text="{Event>shirt_size}" visible="{=${Event>display_shirt_option} === 1}"/>
+									<Label text="Accomodation" visible="{=${Event>display_accomodation_option} === 1}"/>
+									<Text text="{Event>accomodation}" visible="{=${Event>display_accomodation_option} === 1}"/>
+								</form:content>
+							</form:SimpleForm>
+							<FlexBox
+								alignItems="Center"
+								justifyContent="End" visible="{= ${Event>can_register} &amp;&amp; ${Event>event_status} === 'Open For Registration'}">
+								<items>
+									<Button visible="{=${Event>register} === false &amp;&amp; ${Event>event_status} === 'Open For Registration' &amp;&amp; ${Event>can_register}}" text="Register Event" press="handleRegisterEvent"/>
+									<Button visible="{=${Event>register} &amp;&amp; ${Event>event_status} === 'Open For Registration'}" text="Change Perference" press="handleChangeEvent"/>
+									<Button visible="{=${Event>register} &amp;&amp; ${Event>event_status} === 'Open For Registration'}" text="Withdraw Registration" press="handleDeleteEvent"/>
+								</items>
+							</FlexBox>
+							<FlexBox
+								alignItems="Center"
+								justifyContent="Center" visible="{= !${Event>can_register} &amp;&amp; ${Event>position_restriction} !== null}">
+								<MessageStrip
+									text="Only {Event>position_restriction} members can register for this event"
+									type="Warning"
+									showIcon="true"
+									customIcon="sap-icon://locked">
+								</MessageStrip>
+							</FlexBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell class="mainPageContent">
+							<core:HTML content="{Event>description}" />
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell class="mainPageContent">
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

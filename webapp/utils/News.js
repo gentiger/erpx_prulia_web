@@ -5,113 +5,85 @@ sap.ui.define([
   "com/erpx/site/prulia/PRULIA/utils/ErrorHandler"
 ], function(Object, JSONModel, Config, ErrorHandler) {
   "use strict";
-  // return {
-  //   _newsModel: : undefined,
-  //   getNewsModel : function(fnSuccess, fnError){
-  //     if (this._newsModel === undefined){
-  //       $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_newsletter.prulia_newsletter.get_newsletter_list', function(data, status, xhr){
-  //         this._newsModel.setData(data.message);
-  //         if(fnSuccess){
-  //           fnSuccess();
-  //         }
-  //       }.bind(this)).fail(function(error) {
-  //         if(fnError){
-  //           fnError();
-  //         }
-  //         if(error.responseJSON){
-  //           ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-  //         } else {
-  //           ErrorHandler.showErrorMessage(null,error);
-  //           console.log(error); // or whatever
-  //         }
-  //       }
-  //     }
-  //     return this._newsModel;
-  //   },
-  //   // getTop5Model: function(fnSuccess, fnError) {
-  //   //   this.getNewsModel(function(){
-
-  //   //   }.bind(this), fnError)
-  //   //   // var top5Model = new JSONModel();
-  //   //   // top5Model.setData(this.model.getProperty("/").slice(0, 5));
-  //   //   // return top5Model;
-  //   // }
-  // }
-  return Object.extend("com.erpx.site.prulia.PRULIA.util.News", {
-    constructor: function() {
-
-      this.model = new JSONModel();
-
-      // this.model.setData([{
-      // 	id:"PRN000001",
-      // 	title:"PRULIA Membership App Launching",
-      // 	date:"08-05-2018",
-      // 	type:"Content",
-      // 	image:"http://103.253.146.122/files/IMG-20180420-WA0014.jpg",
-      // 	content:"<div>To all Prulia members, <br><br>We are proud to announce the very first in the record, Prulia’s Mobile Application is launch!<br><br>In line with the technology, Prulia has now come to serve you better &amp; seamlessly with all new functionality. More features are coming in, stay tune.</div><div><br></div><div><br></div><hr><div><br></div>"
-      // },{
-      // 	id:"PRN000002",
-      // 	title:"PRULIA Membership App Launching2",
-      // 	date:"08-05-2018",
-      // 	type:"Content",
-      // 	image:"http://103.253.146.122/files/IMG-20180420-WA0014.jpg",
-      // 	content:"<div>To all Prulia members, <br><br>We are proud to announce the very first in the record, Prulia’s Mobile Application is launch!<br><br>In line with the technology, Prulia has now come to serve you better &amp; seamlessly with all new functionality. More features are coming in, stay tune.</div><div><br></div><div><br></div><hr><div><br></div>"
-      // },{
-      // 	id:"PRN000003",
-      // 	title:"PRULIA Membership App Launching3",
-      // 	date:"08-05-2018",
-      // 	type:"Content",
-      // 	image:"http://103.253.146.122/files/IMG-20180420-WA0014.jpg",
-      // 	content:"<div>To all Prulia members, <br><br>We are proud to announce the very first in the record, Prulia’s Mobile Application is launch!<br><br>In line with the technology, Prulia has now come to serve you better &amp; seamlessly with all new functionality. More features are coming in, stay tune.</div><div><br></div><div><br></div><hr><div><br></div>"
-      // }]);
+  var oInstance;
+  var oNews = Object.extend("com.erpx.site.prulia.PRULIA.utils.News",{
+    _newsModel: undefined,
+    constructor: function(fnSuccess, fnError){
       
-          
-      
-    },
-    updateModel(fnSuccess, fnError){
-      $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_newsletter.prulia_newsletter.get_newsletter_list', function(data, status, xhr){
-        for(var i = 0; i < data.message.length; i++){
-          if(data.message[i].news_image === null){
-            data.message[i].news_image = 'css/images/PruliaImage.png'
-          } else if(data.message[i].news_image.indexOf("/files/") === 0){
-            data.message[i].news_image = Config.serverURL + data.message[i].news_image;
-            // data.message[i].news_image = "http://localhost:8000" + data.message[i].news_image;
-          } 
-        }
-        
-
-        this.model.setData(data.message);
-        if(fnSuccess){
-          fnSuccess();
-        }
-      }.bind(this)).fail(function(error) {
-        if(fnError){
-          fnError();
-        }
-        if(error.responseJSON){
-          //ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-        } else {
-          //ErrorHandler.showErrorMessage(null,error);
-          console.log(error); // or whatever
-        }
-      }.bind(this));
     },
 
     getModel: function(fnSuccess, fnError) {
-      this.updateModel(fnSuccess, fnError)
-      return this.model;
+      var that = this;
+      var oDeferred = new $.Deferred();
+      if(that._newsModel !== undefined){
+        oDeferred.resolve(that._newsModel)
+      } else {
+        that.updateNewsModel(function(){
+          oDeferred.resolve(that._newsModel)
+        }, function(){
+          oDeferred.reject()
+        })
+      }
+      return oDeferred.promise();
     },
     getTop5Model: function(fnSuccess, fnError) {
-      var top5Model = new JSONModel();
-      this.updateModel(function(){
-        top5Model.setData(this.model.getProperty("/").slice(0, 5));
-        if(fnSuccess){
-          fnSuccess()
+      var that = this;
+      var oDeferred = new $.Deferred();
+      if(that._newsModel !== undefined){
+        oDeferred.resolve(new JSONModel(that._newsModel.getProperty("/").slice(0,5)))
+      } else {
+        that.updateNewsModel(function(){
+          oDeferred.resolve(new JSONModel(that._newsModel.getProperty("/").slice(0,5)))
+        }, function(){
+          oDeferred.reject()
+        })
+      }
+      return oDeferred.promise();
+    },
+    updateNewsModel: function(fnSuccess, fnError){
+      $.get(Config.serverURL + '/api/method/erpx_prulia.prulia_news.doctype.prulia_newsletter.prulia_newsletter.get_newsletter_list', function(data, status, xhr){
+          var oNewsItem = [];
+          if(data.message !== undefined){
+            oNewsItem = data.message;
+          }
+          this._manageNewsImage(oNewsItem); 
+          if(this._newsModel === undefined){
+            this._newsModel = new JSONModel(oNewsItem);
+          } else {
+            this._newsModel.setData(oNewsItem);
+          }
+          fnSuccess(this._newsModel);
+        }.bind(this)).fail(function(error) {
+          if(error.responseJSON){
+            //ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
+          } else {
+            //ErrorHandler.showErrorMessage(null,error);
+            console.log(error); // or whatever
+            fnError();
+          }
+        }.bind(this));
+    },
+
+    _manageNewsImage: function(aNews){
+      for(var i = 0; i < aNews.length; i++){
+          if(aNews[i].news_image === undefined || aNews[i].news_image === null){
+            aNews[i].news_image = 'css/images/PruliaImage.png'
+          } else if(aNews[i].news_image.indexOf("/files/") === 0){
+            if(Config.serverURL === "http://127.0.0.1:8080"){
+              aNews[i].news_image = "http://127.0.0.1:8000" + aNews[i].news_image;
+            } else {
+              aNews[i].news_image = Config.serverURL + aNews[i].news_image;
+            }
+          } 
         }
-      }.bind(this), fnError)
-      
-      
-      return top5Model;
     }
   });
+  return {
+        getInstance: function () {
+            if (!oInstance) {
+                oInstance = new oNews();
+            }
+            return oInstance;
+        }
+    };
 });

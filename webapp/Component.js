@@ -64,15 +64,6 @@ sap.ui.define([
 		        fontFamily : "public-font-icons",
 		        content : "EB99" 
     		});
-
-    		
-		},
-
-		getNewsInstance: function(fnSuccess, fnError){
-			if(this._news === undefined){
-				this._news = new News()
-			}
-			return this._news;
 		}
 	});
 });

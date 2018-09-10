@@ -1,0 +1,58 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:custom="com.erpx.site.prulia.PRULIA.custom"
+	controllerName="com.erpx.site.prulia.PRULIA.controller.Event" xmlns:html="http://www.w3.org/1999/xhtml" >
+	<Page showHeader="false" displayBlock="true">
+		<content>
+			<l:VerticalLayout class="mainContent">
+				<l:BlockLayout>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell
+								backgroundColorSet="ColorSet10" 
+								backgroundColorShade="ShadeA"
+								titleAlignment="Left"
+								title="Event">
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow class="mainMenu" visible="{=${Event>/}.length > 0}">
+						<l:BlockLayoutCell 
+								class="mainPageContent genericTile sapUiNoContentPadding contentHeight">
+							<l:Grid defaultSpan="L4 M6 S12" class="sapUiNoContentPadding sapUiSmallMarginTop" content="{Event>/}" hSpacing="0">
+								<VBox>
+									<Text class="eventStatus eventRegistered" text="Registered" visible="{Event>register}"/>
+									<Text class="eventStatus eventOpenRegistration" text="Ready for Registration" visible="{=${Event>register} === false &amp;&amp; (${Event>event_status} === 'Open For Registration' || (${Event>event_status} === 'Publish' &amp;&amp; ${Event>show_open_for_registration} === 1))}"/>
+									<Text class="eventStatus eventClosedRegistration" text="Registration Closed" visible="{=${Event>register} === false &amp;&amp; ${Event>event_status} === 'Registration Closed'}"/>
+									<GenericTile
+									frameType="TwoByOne" press="handleEventTilePress" backgroundImage="{Event>event_image}" class="genericTileImage">
+										<TileContent footer="{ parts : [ 'Event>start_date_time', 'Event>end_date_time' ], formatter: '.eventDateFormatter' }">
+											<NewsContent contentText="{Event>event_name}"/>
+										</TileContent>
+									</GenericTile>
+								</VBox>
+								
+							</l:Grid>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow visible="{=${Event>/}.length === 0}">
+						<l:BlockLayoutCell 
+								class="mainPageContent sapUiNoContentPadding contentHeight">
+							<FlexBox 
+								fitContainer="true"
+								direction="Column"
+								alignItems="Center"
+								justifyContent="Center">
+								<items>
+									<core:Icon src="sap-icon://post" class="noItemMessageIcon sapUiMediumMarginBottom" />
+									<Title text="Opps, no latest event available :(" class="noItemMessageText" />
+								</items>
+							</FlexBox>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell>
+							<Text text="Copyright © 2018 Prudential Life Insurance Agency Association. All rights reserved."/>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+	</Page>
+</mvc:View>

@@ -128,6 +128,16 @@
 					"pattern": "newsdetail/{newsid}",
 					"name": "NewsDetail",
 					"target": "NewsDetail"
+				},
+				{
+					"pattern": "event",
+					"name": "Event",
+					"target": "Event"
+				},
+				{
+					"pattern": "eventdetail/{eventid}",
+					"name": "EventDetail",
+					"target": "EventDetail"
 				}
 			],
 			"targets": {
@@ -214,6 +224,26 @@
 				"NewsDetail": {
 					"viewType": "XML",
 					"viewName": "NewsDetail",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"Event": {
+					"viewType": "XML",
+					"viewName": "Event",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "com.erpx.site.prulia.PRULIA.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl",
+					"clearControlAggregation": false
+				},
+				"EventDetail": {
+					"viewType": "XML",
+					"viewName": "EventDetail",
 					"routerClass": "sap.m.routing.Router",
 					"async": true,
 					"viewPath": "com.erpx.site.prulia.PRULIA.view",

@@ -1,10 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"com/erpx/site/prulia/PRULIA/utils/News"
-], function (Controller, News) {
+	"sap/ui/core/format/DateFormat",
+	"com/erpx/site/prulia/PRULIA/utils/Event"
+], function (Controller, DateFormat, Event) {
 	"use strict";
 
-	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.News", {
+	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.Event", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -14,14 +15,14 @@ sap.ui.define([
 			
 		onInit: function () {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.getRoute("News").attachPatternMatched(this._onObjectMatched, this);
+			oRouter.getRoute("Event").attachPatternMatched(this._onObjectMatched, this);
 		},
 		_onObjectMatched: function (oEvent) {
 			this.getOwnerComponent().getModel("appParam").setProperty("/showBack", true);
 			this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
-			News.getInstance().getModel().then(
+			Event.getInstance().getModel().then(
 				function(oModel){
-					this.getView().setModel(oModel,"News");
+					this.getView().setModel(oModel,"Event");
 					this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
 				}.bind(this),
 				function(error){
@@ -57,14 +58,20 @@ sap.ui.define([
 		//
 		//	}
 
-		handleNewsTilePress: function(oEvent){
-			var oNewsTileObject = oEvent.getSource().getBindingContext("News").getObject();
-			if(oNewsTileObject.type==="Link"){
-				window.open(oNewsTileObject.link)
+		handleEventTilePress: function(oEvent){
+			var oEventTileObject = oEvent.getSource().getBindingContext("Event").getObject();
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("EventDetail", {
+				eventid: oEventTileObject.name
+			});
+		},
+
+		eventDateFormatter: function(start_date, end_date){
+			var oDateTimeFormat = DateFormat.getDateInstance({pattern : "dd MMM yyyy, h:mm a" });
+			var oTimeFormat = DateFormat.getDateInstance({pattern : "h:mm a" });
+			if(start_date.toDateString() === end_date.toDateString()){
+				return oDateTimeFormat.format(start_date) + " - " + oTimeFormat.format(end_date);
 			} else {
-				sap.ui.core.UIComponent.getRouterFor(this).navTo("NewsDetail", {
-					newsid: oNewsTileObject.name
-				});
+				return oDateTimeFormat.format(start_date) + " - " + oDateTimeFormat.format(end_date);
 			}
 		}
 	});

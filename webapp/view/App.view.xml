@@ -70,7 +70,7 @@
 					<tnt:NavigationListItem text="Event"
 											icon="sap-icon://badge"
 											key="home"
-											select="handlEventSelect">
+											select="handleEventSelect">
 					</tnt:NavigationListItem>
 					<tnt:NavigationListItem text="Smart Partner"
 											icon="sap-icon://group"

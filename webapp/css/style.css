@@ -383,9 +383,66 @@
 	height:14.35rem;
 } 
 
+.genericTile .sapMTileCnt.sapMFrameTypeAuto{
+	max-width: 100%;
+}
+
+.genericTile .sapMNwCCTxt{
+	max-width: 100%;
+}
+
+
 .newsTitle{
 	font-size: 2rem !important;
 	font-family: "Open Sans", "Adobe Blank";
     font-weight: 600;
     font-style: normal;
+}
+
+.contentHeight{
+	min-height: calc( 100vh - 14.0625rem );
+}
+
+.noItemMessageIcon{
+	color: #878787;
+	font-size: 8rem;
+}
+
+.noItemMessageText{
+	color: #333333;
+    font-size: 1.375rem;
+}
+
+.eventStatus{
+	text-align: left;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 1rem;
+    color: #fff;
+}
+
+.eventOpenRegistration{
+	background-color: #49A15A;
+}
+
+.eventRegistered{
+	background-color: #448AF8;
+}
+
+.eventClosedRegistration{
+	background-color: #ff6961;
+}
+
+.imageMaxHeight{
+	max-height: 40vh;
+}
+
+.titleContent .sapMText{
+	font-size: 1rem !important;
+}
+
+.titleContent .sapUiIcon{
+	font-size: 1rem !important;
 }

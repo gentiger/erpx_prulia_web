@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
-	"com/erpx/site/prulia/PRULIA/utils/Login"
+	"com/erpx/site/prulia/PRULIA/utils/Login",
+	"com/erpx/site/prulia/PRULIA/utils/News"
 ], function (Controller, MessageToast, Login, News) {
 	"use strict";
 
@@ -16,18 +17,16 @@ sap.ui.define([
 		_onObjectMatched: function (oEvent) {
 			this.getOwnerComponent().getModel("appParam").setProperty("/showBack", false);
 			this.getView().byId("newsContainer").setBusy(true);
-			var oNews = this.getOwnerComponent().getNewsInstance().getTop5Model(function(){
-				this.getView().setModel(oNews,"News");
+			News.getInstance().getTop5Model().then(
+				function(oModel){
+					this.getView().setModel(oModel,"News");
+				}.bind(this),
+				function(error){
+					console.log(error);
+				}.bind(this)
+			).always(function(){
 				this.getView().byId("newsContainer").setBusy(false);
-			}.bind(this),
-			function(error){
-				this.getView().byId("newsContainer").setBusy(false);
-				console.log(error);
 			}.bind(this))
-		},
-		
-		onPress: function(){
-			alert("Hellos")
 		},
 		
 		handlePresidentMessagePress: function(event){
@@ -68,6 +67,9 @@ sap.ui.define([
 		},
 		handleNewsPress: function(){
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("News");
+		},
+		handleEventPress: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Event");
 		},
 		handleNewsTilePress: function(oEvent){
 			var oNewsTileObject = oEvent.getSource().getBindingContext("News").getObject();

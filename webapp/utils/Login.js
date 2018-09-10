@@ -10,8 +10,10 @@ sap.ui.define([
 	"sap/m/Label",
 	"sap/m/Input",
 	"sap/m/Button",
-	"sap/m/MessageBox"
-], function (Config, ErrorHandler, JSONModel, MessageToast, Dialog, Title, VBox, SimpleForm, Label, Input, Button, MessageBox) {
+	"sap/m/MessageBox",
+	"com/erpx/site/prulia/PRULIA/utils/Event",
+	"sap/m/MessageStrip"
+], function (Config, ErrorHandler, JSONModel, MessageToast, Dialog, Title, VBox, SimpleForm, Label, Input, Button, MessageBox, Event, MessageStrip) {
 	"use strict";
 
 	return {
@@ -40,14 +42,7 @@ sap.ui.define([
 					fnSuccess();
 				}, fnError);
 			}.bind(this)).fail(function(error) {
-				if(error.responseJSON && error.responseJSON._server_messages){
-					ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-				} else if(error.responseJSON && error.responseJSON.message){
-					ErrorHandler.showErrorMessage(error.responseJSON.message);
-				} else {
-					ErrorHandler.showErrorMessage(null,error);
-					console.log(error); // or whatever
-				}
+				ErrorHandler.handleAjaxError(error);
 				fnError();
 			}.bind(this));
 		},
@@ -63,9 +58,7 @@ sap.ui.define([
 				if(fnError){
 					fnError();
 				}
-				ErrorHandler.showErrorMessage(null,error);
-				console.log(error); // or whatever
-
+				ErrorHandler.handleAjaxError(error)
 			}.bind(this))
 		},
 		check_if_cookie_valid: function(fnSuccess, fnError){
@@ -90,7 +83,7 @@ sap.ui.define([
 					stretch: oController.getOwnerComponent().getModel("device").getProperty("/system/phone"),
 					content: new VBox({
 						items:[
-							new sap.m.Title({
+							new sap.m.Text({
 								text:"Enter your Agent ID and NRIC Number so we can send you temporary password"
 							}),
 							new SimpleForm({
@@ -217,20 +210,17 @@ sap.ui.define([
 				if(fnError){
 					fnError();
 				}
-				if(error.responseJSON){
-					ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-				} else {
-					ErrorHandler.showErrorMessage(null,error);
-					console.log(error); // or whatever
-				}
-			    
+				ErrorHandler.handleAjaxError(error);
 			}.bind(this));
 		},
 		setMemberModel: function(memberData){
 			this._loginModel.setProperty("/memberLogon", true);
 			if(memberData.profile_photo.indexOf("/files/") === 0){
-				memberData.profile_photo = Config.serverURL + memberData.profile_photo;
-				// memberData.profile_photo = "http://localhost:8000" + memberData.profile_photo;
+				if(Config.serverURL === "http://127.0.0.1:8080"){
+	              memberData.profile_photo = "http://127.0.0.1:8000" + memberData.profile_photo;
+	            } else {
+	              memberData.profile_photo = Config.serverURL + memberData.profile_photo;
+	            }
 			}
 			this._memberModel.setData(memberData);
 		},
@@ -258,14 +248,7 @@ sap.ui.define([
 					if(fnError){
 						fnError();
 					}
-					if(error.responseJSON && error.responseJSON._server_messages){
-						ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-					} else if(error.responseJSON && error.responseJSON.message){
-						ErrorHandler.showErrorMessage(error.responseJSON.message);
-					} else {
-						ErrorHandler.showErrorMessage(null,error);
-						console.log(error); // or whatever
-					}
+					ErrorHandler.handleAjaxError(error);
 				}.bind(this)
 			})
 		},
@@ -282,16 +265,87 @@ sap.ui.define([
 				if(fnError){
 					fnError();
 				}
-				if(error.responseJSON && error.responseJSON._server_messages){
-					ErrorHandler.showErrorMessage(JSON.parse(JSON.parse(error.responseJSON._server_messages)[0]).message);
-				} else if(error.responseJSON && error.responseJSON.message){
-					ErrorHandler.showErrorMessage(error.responseJSON.message);
-				} else {
-					ErrorHandler.showErrorMessage(null,error);
-					console.log(error); // or whatever
-				}
+				ErrorHandler.handleAjaxError(error);
 			}.bind(this));
 		},
+		open_login_dialog: function(oController, additionalMsg){
+			if (!this.loginDialog) {
+				this.loginDialog = new Dialog({
+					title: 'Member Login',
+					stretch: oController.getOwnerComponent().getModel("device").getProperty("/system/phone"),      
+					content: new VBox({
+						items: [ 
+							new MessageStrip({
+								text:additionalMsg,
+								type: "Warning",
+								showIcon: true,
+								visible: additionalMsg ? true : false 
+							}).addStyleClass("sapUiResponsiveMargin"),
+							new SimpleForm({
+								editable:true,
+								layout:"ResponsiveGridLayout",
+								content: [
+									new Label({
+										text: "Agent ID"
+									}),
+									new Input("memberLogin-Username"),
+									new Label({
+										text: "Password"
+									}),
+									new Input("memberLogin-Password", {
+										type:"Password"
+									}),
+									new sap.m.Link({text:"First & Forgot Password", press: function(){
+											this.loginDialog.close();
+											this.open_forget_password_dialog(oController);
+										}.bind(this)
+									})
+								]
+							})
+						]
+					}),
+					beginButton: new Button({
+						text: 'Login',
+						press: function (oEvent) {
+							oController.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+							this.login(
+								sap.ui.getCore().byId("memberLogin-Username").getValue(), 
+								sap.ui.getCore().byId("memberLogin-Password").getValue(), 
+								function(){
+									Event.getInstance().updateEventModel(function(){
+										MessageToast.show("Member successfully login");
+										oController.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+									}.bind(this),
+									function(){
+										oController.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+									}.bind(this))
+									
+								}.bind(this), function(){
+									oController.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this));
+							this.loginDialog.close();
+							// MessageToast.show("User successful login");
+						}.bind(this)
+					}),
+					endButton: new Button({
+						text: 'Cancel',
+						press: function () {
+							this.loginDialog.close();
+						}.bind(this)
+					}),
+					afterClose: function(){
+						this.loginDialog.destroy();
+						this.loginDialog = undefined;
+					}.bind(this)
+				});
+
+				//to get access to the global model
+				oController.getView().addDependent(this.loginDialog);
+			}
+			this.loginDialog.open();
+		},
+
+
 
 
 

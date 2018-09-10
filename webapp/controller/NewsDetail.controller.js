@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"com/erpx/site/prulia/PRULIA/utils/News"
+], function (Controller, News) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.NewsDetail", {
@@ -19,38 +20,28 @@ sap.ui.define([
 			this.getOwnerComponent().getModel("appParam").setProperty("/showBack", true);
 			this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
 			var newsID = oEvent.getParameter("arguments").newsid;
-			var oNews = this.getOwnerComponent().getNewsInstance().getModel(function(){
-				this.getView().setModel(oNews,"News");
-				for(var i = 0; i < oNews.getProperty("/").length; i++){
-					if(oNews.getProperty("/")[i].name === newsID){
-						break;
+			News.getInstance().getModel().then(
+				function(oModel){
+					this.getView().setModel(oModel,"News");
+					for(var i = 0; i < oModel.getProperty("/").length; i++){
+						if(oModel.getProperty("/")[i].name === newsID){
+							break;
+						}
 					}
-				}
-				this.getView().bindElement({
-					path: "/" + i,
-					model: "News",
-					events : {
-						change: this._onBindingChange.bind(this),
-					}
-				});
-
+					this.getView().bindElement({
+						path: "/" + i,
+						model: "News",
+						events : {
+							change: this._onBindingChange.bind(this),
+						}
+					});
+				}.bind(this),
+				function(error){
+					console.log(error);
+				}.bind(this)
+			).always(function(){
 				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-			}.bind(this),
-			function(error){
-				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-				console.log(error);
-			}.bind(this));
-			
-			// this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
-			// var oNews = this.getOwnerComponent().getNewsInstance().getModel(function(){
-			// 	this.getView().setModel(oNews,"News");
-			// 	this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-			// }.bind(this),
-			// function(error){
-			// 	this.getView().byId("newsContainer").setBusy(false);
-			// 	console.log(error);
-			// }.bind(this));
-
+			}.bind(this))
 		},
 		_onBindingChange : function (oEvent) {
 			// No data for the binding

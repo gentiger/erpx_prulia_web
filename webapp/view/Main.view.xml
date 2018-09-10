@@ -16,7 +16,7 @@
 							<l:BlockLayoutRow class="mainMenu">
 								<l:BlockLayoutCell 
 										class="mainPageContent sapUiNoContentPadding">
-									<l:Grid defaultSpan="L3 M6 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
+									<l:Grid defaultSpan="L4 M6 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
 										<GenericTile
 											frameType="OneByOne" press="handlePresidentMessagePress" headerImage="sap-icon://pu/president" header="&#xA;" subheader="President's message">
 										</GenericTile>
@@ -26,12 +26,12 @@
 										<GenericTile
 											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/membership" header="&#xA;" subheader="Membership">
 										</GenericTile>
-										<!-- <GenericTile
+										<GenericTile
 											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/training" header="&#xA;" subheader="Training">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
-										</GenericTile> -->
+											frameType="OneByOne" press="handleEventPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
+										</GenericTile>
 										<GenericTile
 											frameType="OneByOne" press="handlePhotoAlbumPress" headerImage="sap-icon://pu/photoalbum" header="&#xA;" subheader="Photo Album">
 										</GenericTile>
@@ -44,13 +44,22 @@
 										title="Latest News" 
 										backgroundColorSet="ColorSet10" 
 										backgroundColorShade="ShadeD"
-										class="mainPageContent sapUiTinyMarginTopBottom">
+										class="mainPageContent sapUiTinyMarginTop">
 									
 									<HeaderContainer id="newsContainer" scrollStep="200" showDividers="false" content="{News>/}">
 										<GenericTile
 											backgroundImage="{News>news_image}"
 											frameType="TwoByOne" press="handleNewsTilePress" class="mainImageTile">
-											<TileContent footer="{News>publish_date}">
+											<TileContent footer="{
+												path: 'News>publish_date',
+												type: 'sap.ui.model.type.Date',
+												formatOptions: {
+													style: 'medium',
+													source: {
+														pattern: 'yyyy/MM/dd'
+													}
+												}
+											}">
 												<NewsContent
 													contentText="{News>title}"/>
 											</TileContent>
@@ -60,42 +69,6 @@
 										<Button icon="sap-icon://navigation-right-arrow" text="More News" type="Transparent" press="handleNewsPress"></Button>
 									</HBox>
 									
-								</l:BlockLayoutCell>
-							</l:BlockLayoutRow>
-							<l:BlockLayoutRow class="mainPageContent">
-								<l:BlockLayoutCell>
-									<FlexBox direction="Column" fitContainer="true"
-										alignItems="End" justifyContent="Center">
-										<Title text="NEW LOOK" class="login-font-heading-title login-font-heading"/>
-										<Title text="Webpage + PRULIA App" class="login-font-heading"/>
-										<Text class="login-font-heading-content" text="Come and register with our new PRULIA app to experiance our new look &amp; new functionality" />
-									</FlexBox>
-									
-								</l:BlockLayoutCell>
-								<l:BlockLayoutCell titleAlignment="Left"
-										title="Member Login" visible="{=!${login>/memberLogon}}">
-									<VBox>
-										<f:SimpleForm
-											editable="true"
-											layout="ResponsiveGridLayout" >
-											<f:content>
-												<Label text="PRULIA ID" />
-												<Input id="idIptUsername"/>
-												<Label text="Password" />
-												<Input type="Password" id="idIptPassword">
-												</Input>
-											</f:content>
-										</f:SimpleForm>
-										<FlexBox
-											height="100px"
-											alignItems="Center"
-											justifyContent="End">
-											<items>
-												<Link text="First &amp; Forgot Password?" class="sapUiSmallMarginEnd" press="handleForgotPasswordPress" />
-												<Button text="Login" press="handleLoginPress"/>
-											</items>
-										</FlexBox>
-									</VBox>
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
 							<l:BlockLayoutRow class="contactRow">

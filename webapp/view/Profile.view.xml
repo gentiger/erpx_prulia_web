@@ -1,75 +1,5 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:uxap="sap.uxap" controllerName="com.erpx.site.prulia.PRULIA.controller.Profile"
 	xmlns:html="http://www.w3.org/1999/xhtml">
-	<!-- <Page showHeader="false">
-		<content>
-			<l:BlockLayout>
-				<l:BlockLayoutRow visible="{device>/system/phone}">
-					<l:BlockLayoutCell>
-						<FlexBox
-							alignItems="Center"
-							justifyContent="Center">
-							<items>
-								<f:Avatar
-									src="{member>/profile_photo}"
-									displaySize="XL">
-								</f:Avatar>
-							</items>
-						</FlexBox>
-					</l:BlockLayoutCell>
-				</l:BlockLayoutRow>
-				<l:BlockLayoutRow>
-					<l:BlockLayoutCell class="mainPageContentLeft">
-						<VBox>
-							<Text text="{member>/full_name}" class="nameText"/>
-							<Text text="{member>/prudential_id}" class="idText"/>
-						</VBox>
-					</l:BlockLayoutCell>
-					<l:BlockLayoutCell class="mainPageContentRight" visible="{=!${device>/system/phone}}">
-						<FlexBox
-							alignItems="Center"
-							justifyContent="Center">
-							<items>
-								<f:Avatar
-									src="{member>/profile_photo}"
-									displaySize="XL">
-								</f:Avatar>
-							</items>
-						</FlexBox>
-					</l:BlockLayoutCell>
-				</l:BlockLayoutRow>
-				<l:BlockLayoutRow>
-					<l:BlockLayoutCell class="mainPageContent">
-						<form:SimpleForm
-							editable="false"
-							layout="ResponsiveGridLayout"
-							title="Address"
-							labelSpanXL="3"
-							labelSpanL="3"
-							labelSpanM="3"
-							labelSpanS="12"
-							adjustLabelSpan="false"
-							emptySpanXL="4"
-							emptySpanL="4"
-							emptySpanM="4"
-							emptySpanS="0"
-							columnsXL="1"
-							columnsL="1"
-							columnsM="1"
-							singleContainerFullSize="false" >
-							<form:content>
-								<Label text="NRIC Number" />
-								<Text text="{member>/nric_number}" />
-								<Label text="Gender" />
-								<Text text="{member>/gender}" />
-								<Label text="Mobile No" />
-								<Text text="{member>/cell_number}" />
-							</form:content>
-						</form:SimpleForm>
-					</l:BlockLayoutCell>
-				</l:BlockLayoutRow>
-			</l:BlockLayout>
-		</content>
-	</Page> -->
 	<uxap:ObjectPageLayout id="ObjectPageLayout" 
 		enableLazyLoading="false"
 		showTitleInHeaderContent="true"
@@ -85,19 +15,6 @@
 							  objectSubtitle="{member>prudential_id}">
 			</uxap:ObjectPageHeader>
 		</uxap:headerTitle>
-
-		<!-- <uxap:headerContent>
-			<l:HorizontalLayout>
-				<core:Icon src="sap-icon://phone"></core:Icon>
-				<Link text="019-2115977"/>
-			</l:HorizontalLayout>
-			<l:HorizontalLayout>
-				<core:Icon src="sap-icon://email"></core:Icon>
-				<Link text="maniraja.c@gmail.com"/>
-			</l:HorizontalLayout>
-
-		</uxap:headerContent> -->
-
 		<uxap:sections>
 			<uxap:ObjectPageSection title="Personal Information" titleUppercase="false">
 				<uxap:subSections>
@@ -187,20 +104,6 @@
 					</uxap:ObjectPageSubSection>
 				</uxap:subSections>
 			</uxap:ObjectPageSection>
-
-		<!--	<ObjectPageSection title="Employment">-->
-		<!--		<subSections>-->
-		<!--			<ObjectPageSubSection title="Employment">-->
-		<!--				<blocks>-->
-		<!--					<employment:BlockJobInfo id="jobinfo" columnLayout="2"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt5"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt6"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt7"/>-->
-		<!--					<blockcolor:BlockBlue id="bbt8"/>-->
-		<!--				</blocks>-->
-		<!--			</ObjectPageSubSection>-->
-		<!--		</subSections>-->
-		<!--	</ObjectPageSection>-->
 		</uxap:sections>
 		<uxap:footer>
 			<OverflowToolbar>

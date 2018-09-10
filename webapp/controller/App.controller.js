@@ -9,8 +9,9 @@ sap.ui.define([
 	'sap/m/MessageToast',
 	"sap/ui/core/routing/History",
 	"com/erpx/site/prulia/PRULIA/utils/Login",
-	"com/erpx/site/prulia/PRULIA/utils/Member"
-], function (Controller, Popover, Button, Dialog, SimpleForm, Label, Input, MessageToast, History, Login, Member) {
+	"com/erpx/site/prulia/PRULIA/utils/Member",
+	"com/erpx/site/prulia/PRULIA/utils/Event"
+], function (Controller, Popover, Button, Dialog, SimpleForm, Label, Input, MessageToast, History, Login, Member, Event) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.App", {
@@ -103,8 +104,14 @@ sap.ui.define([
 						press: function(oEvent){
 							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
 							Login.logout(function(){
-								MessageToast.show("Member successfully logout");
-								this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								Event.getInstance().updateEventModel(function(){
+									MessageToast.show("Member successfully logout");
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this),
+								function(){
+									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+								}.bind(this))
+								
 							}.bind(this),
 							function(){
 								this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
@@ -137,67 +144,15 @@ sap.ui.define([
 		},
 		
 		handleLoginPress: function () {
-			if (!this.loginDialog) {
-				this.loginDialog = new Dialog({
-					title: 'Change Password',
-					stretch: this.getOwnerComponent().getModel("device").getProperty("/system/phone"),      
-					content: new SimpleForm({
-						editable:true,
-						layout:"ResponsiveGridLayout",
-						content: [
-							new Label({
-								text: "PRULIA ID"
-							}),
-							new Input("memberLogin-Username"),
-							new Label({
-								text: "Password"
-							}),
-							new Input("memberLogin-Password", {
-								type:"Password"
-							}),
-							new sap.m.Link({text:"First & Forgot Password", press: function(){
-									this.loginDialog.close();
-									this.handleForgotPasswordPress();
-								}.bind(this)
-							})
-						]
-					}),
-					beginButton: new Button({
-						text: 'Login',
-						press: function (oEvent) {
-							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
-							Login.login(
-								sap.ui.getCore().byId("memberLogin-Username").getValue(), 
-								sap.ui.getCore().byId("memberLogin-Password").getValue(), 
-								function(){
-									MessageToast.show("Member successfully login");
-									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-								}.bind(this), function(){
-									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-								}.bind(this));
-							this.loginDialog.close();
-							// MessageToast.show("User successful login");
-						}.bind(this)
-					}),
-					endButton: new Button({
-						text: 'Cancel',
-						press: function () {
-							this.loginDialog.close();
-						}.bind(this)
-					}),
-					afterClose: function(){
-						this.loginDialog.destroy();
-						this.loginDialog = undefined;
-					}.bind(this)
-				});
-
-				//to get access to the global model
-				this.getView().addDependent(this.loginDialog);
-			}
-
-			this.loginDialog.open();
+			Login.open_login_dialog(this);
 		},
-		
+
+		handleEventSelect: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Event");
+			var viewId = this.getView().getId();
+			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
+			toolPage.setSideExpanded(false);
+		},
 		
 		onSideNavButtonPress: function(oEvent){
 			var viewId = this.getView().getId();
@@ -218,9 +173,6 @@ sap.ui.define([
 				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 				oRouter.navTo("Main", {}, true);
 			}
-		},
-		handleForgotPasswordPress: function () {
-			Login.open_forget_password_dialog(this);
 		},
 		handleChangePasswordPress: function () {
 			if (!this.changePasswordDialog) {
