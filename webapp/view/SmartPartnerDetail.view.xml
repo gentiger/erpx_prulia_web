@@ -8,7 +8,7 @@
 						<l:BlockLayoutCell class="bannerCell">
 							<FlexBox
 								alignItems="Center"
-								justifyContent="Center">
+								justifyContent="Center" class="imageMaxHeight">
 								<items>
 									<Image src="{SmartPartner>image}" width="100%" densityAware="false"/>
 								</items>
