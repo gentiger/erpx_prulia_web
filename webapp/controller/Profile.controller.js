@@ -1,9 +1,10 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/format/DateFormat",
 	"sap/m/MessageToast",
 	"com/erpx/site/prulia/PRULIA/utils/Login"
-], function (Controller, JSONModel, MessageToast, Login) {
+], function (Controller, JSONModel, DateFormat, MessageToast, Login) {
 	"use strict";
 
 	return Controller.extend("com.erpx.site.prulia.PRULIA.controller.Profile", {
@@ -76,6 +77,16 @@ sap.ui.define([
 			}.bind(this), function(){
 				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
 			}.bind(this))
+		},
+
+		smartPartnerStatusFormatter: function(statusDate){
+			if(statusDate === undefined || statusDate === null){
+				return "No Record Found"
+			} else {
+				var oDate = new Date(statusDate);
+				var oDateTimeFormat = DateFormat.getDateInstance({pattern : "dd MMM yyyy" });
+				return oDateTimeFormat.format(oDate);
+			}
 		}
 
 	});

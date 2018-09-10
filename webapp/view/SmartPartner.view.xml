@@ -17,10 +17,10 @@
 								class="mainPageContent genericTile sapUiNoContentPadding">
 							<l:Grid defaultSpan="L4 M6 S12" class="sapUiNoContentPadding sapUiSmallMarginTop" content="{SmartPartner>/}" hSpacing="0">
 								<GenericTile
-									frameType="TwoByOne" press="handleNewsTilePress" backgroundImage="{SmartPartner>news_image}" class="genericTileImage">
-									<TileContent footer="{SmartPartner>publish_date}">
+									frameType="TwoByOne" press="handleSmartPartnerTilePress" backgroundImage="{SmartPartner>image}" class="genericTileImage">
+									<TileContent>
 										<NewsContent
-											contentText="{SmartPartner>title}"/>
+											contentText="{SmartPartner>banner_name}"/>
 									</TileContent>
 								</GenericTile>
 							</l:Grid>

@@ -1,5 +1,5 @@
 <mvc:View controllerName="com.erpx.site.prulia.PRULIA.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
-	displayBlock="true" xmlns="sap.m" xmlns:custom="com.erpx.site.prulia.PRULIA.custom" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	displayBlock="true" xmlns="sap.m" xmlns:custom="com.erpx.site.prulia.PRULIA.custom" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
 			<Page showHeader="false" class="pruliaMain">
 				<content>
 					<l:VerticalLayout id="bannerLayout" width="100%" >
@@ -27,7 +27,7 @@
 											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/membership" header="&#xA;" subheader="Membership">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleMembershipPress" headerImage="sap-icon://pu/training" header="&#xA;" subheader="Training">
+											frameType="OneByOne" press="handleTrainingPress" headerImage="sap-icon://pu/training" header="&#xA;" subheader="Training">
 										</GenericTile>
 										<GenericTile
 											frameType="OneByOne" press="handleEventPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
@@ -109,7 +109,62 @@
 										titleAlignment="Left"
 										title="Smart Partners" 
 										class="mainPageContent">
-									
+									<!-- <l:Grid defaultSpan="L2 M4 S6" class="sapUiNoContentPadding sapUiSmallMarginTop"> -->
+									<FlexBox
+										width="100%"
+										class="columns"
+										alignItems="Stretch" visible="{=!${device>/system/phone}}">
+										<items>
+											<Image src="css/icons/maxis-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/dolemon-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/bmw-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/volvo-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/chubb-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/qbe-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+											<Image src="css/icons/toptravel-grey.png" densityAware="false" width="100%">
+												<layoutData>
+													<FlexItemData growFactor="1" />
+												</layoutData>
+											</Image>
+										</items>
+									</FlexBox>
+									<!--only for phone -->
+									<l:Grid defaultSpan="L3 M3 S3" class="sapUiNoContentPadding sapUiSmallMarginTop" visible="{device>/system/phone}">
+										<Image src="css/icons/maxis-grey.png" densityAware="false" width="100%"/>
+										<Image src="css/icons/dolemon-grey.png" densityAware="false" width="100%"/>
+										<Image src="css/icons/bmw-grey.png" densityAware="false" width="100%" />
+										<Image src="css/icons/volvo-grey.png" densityAware="false" width="100%" />
+										<Image src="css/icons/chubb-grey.png" densityAware="false" width="100%" />
+										<Image src="css/icons/qbe-grey.png" densityAware="false" width="100%" />
+										<Image src="css/icons/toptravel-grey.png" densityAware="false" width="100%"/>
+									</l:Grid>
+									<HBox width="100%" justifyContent="End" visible="{login>/memberLogon}">
+										<Button icon="sap-icon://navigation-right-arrow" text="Smart Partners Details" type="Transparent" press="handleSmartPartnerPress"></Button>
+									</HBox>
 									<!-- <HeaderContainer id="partnerContainer" scrollStep="200" showDividers="false" content="{News>/}">
 										<GenericTile
 											backgroundImage="{News>image}"
@@ -123,7 +178,7 @@
 									
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
-							<!-- <l:BlockLayoutRow>
+							<l:BlockLayoutRow class="usefulLink">
 								<l:BlockLayoutCell
 										titleAlignment="Left"
 										title="Useful Link" 
@@ -133,26 +188,32 @@
 									<Image src="css/images/UsefulLinkBanner.png" width="100%" mode="Background" densityAware="false"/>
 									<l:Grid defaultSpan="L3 M4 S6" class="sapUiNoContentPadding sapUiSmallMarginTop">
 										<GenericTile
-											frameType="OneByOne" press="handlePresidentMessagePress" header="PAMB" subheader="Prudential Malaysia">
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/prudential.png" subheader="Prudential Malaysia" customData:openUrl="http://www.prudential.com.my/">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleCommitteePress" header="&#xA;" subheader="Committee 2017-2019">
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/eastspring.gif" subheader="Eastspring Investments" customData:openUrl="http://www.eastspringinvestments.com.my/">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleMembershipPress" header="&#xA;" subheader="Membership">
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/PruBSN.png" subheader="Prudential BSN Takaful" customData:openUrl="https://www.prubsn.com.my/">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleMembershipPress" header="&#xA;" subheader="Training">
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/namlifa.png" subheader="NAMLIFA" customData:openUrl="http://namlifa.org.my/">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handleUsefulLinkPress" header="&#xA;" subheader="Event" >
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/bnm.png" subheader="Bank Negara Malaysia" customData:openUrl="http://www.bnm.gov.my/">
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handlePhotoAlbumPress" header="&#xA;" subheader="Photo Album">
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/mii.gif" subheader="MII" customData:openUrl="http://www.insurance.com.my/">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/sc.png" subheader="Securities Commission" customData:openUrl="http://www.sc.com.my/">
+										</GenericTile>
+										<GenericTile
+											frameType="OneByOne" press="handleUsefulLinkPress" headerImage="css/icons/mta.png" subheader="Malaysia Takaful Association" customData:openUrl="http://www.malaysiantakaful.com.my/">
 										</GenericTile>
 									</l:Grid>
 								</l:BlockLayoutCell>
-							</l:BlockLayoutRow> -->
+							</l:BlockLayoutRow>
 							<l:BlockLayoutRow class="contactRow ">
 								<l:BlockLayoutCell
 										titleAlignment="Left"

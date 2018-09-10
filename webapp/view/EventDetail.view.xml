@@ -81,7 +81,7 @@
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>
 						<l:BlockLayoutCell class="mainPageContent">
-							<core:HTML content="{Event>description}" />
+							<core:HTML content="&lt;div&gt;{Event>description}&lt;/div&gt;" />
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>

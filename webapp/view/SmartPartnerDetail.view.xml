@@ -10,7 +10,7 @@
 								alignItems="Center"
 								justifyContent="Center">
 								<items>
-									<Image src="{SmartPartner>news_image}" width="100%" densityAware="false"/>
+									<Image src="{SmartPartner>image}" width="100%" densityAware="false"/>
 								</items>
 							</FlexBox>
 						</l:BlockLayoutCell>
@@ -20,14 +20,13 @@
 							backgroundColorSet="ColorSet2" 
 							backgroundColorShade="ShadeA">
 							<VBox>
-								<Text text="{SmartPartner>title}" class="newsTitle"/>
-								<Text text="{SmartPartner>publish_date}" />
+								<Text text="{SmartPartner>banner_name}" class="newsTitle"/>
 							</VBox>
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>
 						<l:BlockLayoutCell class="mainPageContent">
-							<core:HTML content="{SmartPartner>content}" />
+							<core:HTML content="&lt;div&gt;{SmartPartner>content}&lt;/div&gt;" />
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>

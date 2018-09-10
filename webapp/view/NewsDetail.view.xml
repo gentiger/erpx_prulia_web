@@ -36,7 +36,7 @@
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>
 						<l:BlockLayoutCell class="mainPageContent">
-							<core:HTML content="{News>content}" />
+							<core:HTML content="&lt;div&gt;{News>content}&lt;/div&gt;" />
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow>

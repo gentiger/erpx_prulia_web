@@ -179,6 +179,9 @@ sap.ui.define([
 				oRouter.navTo("Main", {}, true);
 			}
 		},
+		handleSmartPartnerSelect: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("SmartPartner");
+		},
 		handleChangePasswordPress: function () {
 			if (!this.changePasswordDialog) {
 				this.changePasswordDialog = new Dialog({

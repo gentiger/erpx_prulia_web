@@ -446,3 +446,44 @@
 .titleContent .sapUiIcon{
 	font-size: 1rem !important;
 }
+
+/*UsefulLink*/
+.pruliaMain .usefulLink .sapMGTHdrIconImage{
+	float: inherit;
+}
+
+.pruliaMain .usefulLink .sapMGTHdrContent{
+	text-align: center;
+}
+
+.pruliaMain .usefulLink .sapMGT{
+	padding-top:1.5rem;
+	background: rgb(244, 244, 246);
+    /*background: radial-gradient(#ffffff, #c6c6c6);*/
+} 
+
+@media (max-width: 1024px) {
+	.pruliaMain .usefulLink .sapMGT{
+		padding-top: 0.75rem;
+	}
+}
+
+.pruliaMain .usefulLink .sapMGT.OneByOne{
+	width:100%;
+}
+
+.pruliaMain .usefulLink .sapMGTHdrIconImage{
+	width: 5rem;
+    min-height: 3.5rem;
+    font-size: 3.5rem;
+    color: #ff4238;
+}
+
+
+.pruliaMain .usefulLink .sapMGTSubHdrTxt{
+	font-weight:400;
+	/*overflow: initial;*/
+	white-space: inherit;
+	font-family: "Open Sans", "Adobe Blank";
+	word-wrap: break-word;
+}

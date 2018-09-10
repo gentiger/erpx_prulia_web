@@ -43,7 +43,7 @@ sap.ui.define([
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("Membership");
 		},
 		handleUsefulLinkPress: function(event){
-			sap.ui.core.UIComponent.getRouterFor(this).navTo("UsefulLink");
+			window.open(event.getSource().data("openUrl"));    
 		},
 		handlePhotoAlbumPress: function(event){
 			window.open("https://www.flickr.com/photos/146651706@N07/albums/")
@@ -70,6 +70,9 @@ sap.ui.define([
 		},
 		handleEventPress: function(){
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("Event");
+		},
+		handleSmartPartnerPress: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("SmartPartner");
 		},
 		handleNewsTilePress: function(oEvent){
 			var oNewsTileObject = oEvent.getSource().getBindingContext("News").getObject();
