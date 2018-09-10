@@ -9,7 +9,6 @@ sap.ui.define([
   var oNews = Object.extend("com.erpx.site.prulia.PRULIA.utils.News",{
     _newsModel: undefined,
     constructor: function(fnSuccess, fnError){
-      
     },
 
     getModel: function(fnSuccess, fnError) {

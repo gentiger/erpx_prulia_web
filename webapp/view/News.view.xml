@@ -14,8 +14,8 @@
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow class="mainMenu " visible="{=${News>/}.length > 0}">
 						<l:BlockLayoutCell 
-								class="mainPageContent genericTile sapUiNoContentPadding contentHeight">
-							<l:Grid defaultSpan="L4 M6 S12" class="sapUiNoContentPadding sapUiSmallMarginTop" content="{News>/}" hSpacing="0" >
+								class="mainPageContent genericTile sapUiNoContentPadding">
+							<l:Grid defaultSpan="L4 M6 S12" class="sapUiNoContentPadding sapUiSmallMarginTop" content="{News>/}" hSpacing="0" visible="{=${News>/}.length > 0}">
 								<GenericTile
 									frameType="TwoByOne" press="handleNewsTilePress" backgroundImage="{News>news_image}" class="genericTileImage">
 									<TileContent footer="{
@@ -33,6 +33,7 @@
 									</TileContent>
 								</GenericTile>
 							</l:Grid>
+							<Text text="No Newsletter Available" visible = "{=${News>/}.length === 0}"/>
 						</l:BlockLayoutCell>
 					</l:BlockLayoutRow>
 					<l:BlockLayoutRow class="" visible="{=${News>/}.length === 0}">

@@ -9,7 +9,7 @@ sap.ui.define([
     constructor: function() {
     	this._memberModel = new JSONModel();
 
-      	$.get(Config.serverURL + '/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.mobile_member_login', function(data, status, xhr){
+      	$.get('/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.mobile_member_login', function(data, status, xhr){
 			// that._memberModel.setProperty("/memberLogon", true);
 			that._memberModel.setData(data);
 		}).fail(function(error) {
