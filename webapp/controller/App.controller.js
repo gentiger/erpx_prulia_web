@@ -73,56 +73,35 @@ sap.ui.define([
 
 		handleUserNamePress: function (event) {
 			var that = this;
-			var popover = new Popover({
-				showHeader: false,
-				placement: sap.m.PlacementType.Bottom,
-				content:[
-					new Button({
-						text: 'Profile',
-						type: sap.m.ButtonType.Transparent,
-						press: function(oEvent){
-							sap.ui.core.UIComponent.getRouterFor(that).navTo("Profile");
-							popover.close();
-						}
-					}),
-					new Button({
-						text: 'Change Password',
-						type: sap.m.ButtonType.Transparent,
-						press: this.handleChangePasswordPress.bind(this)
-					}),
-					new Button({
-						text: 'Feedback',
-						type: sap.m.ButtonType.Transparent,
-						press: function(oEvent){
-							window.open("https://form.jotform.me/80987924533469")
-							popover.close();
-						}
-					}),
-					new Button({
-						text: 'Logout',
-						type: sap.m.ButtonType.Transparent,
-						press: function(oEvent){
-							this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
-							Login.logout(function(){
-								Event.getInstance().updateEventModel(function(){
-									MessageToast.show("Member successfully logout");
-									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-								}.bind(this),
-								function(){
-									this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-								}.bind(this))
-								
-							}.bind(this),
-							function(){
-								this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-							}.bind(this))
-							popover.close();
-						}.bind(this)
-					})
-				]
-			}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
-
-			popover.openBy(event.getSource());
+			if(this.popover === undefined){
+				this.popover = new Popover({
+					showHeader: false,
+					placement: sap.m.PlacementType.Bottom,
+					content:[
+						new Button({
+							text: 'Profile',
+							type: sap.m.ButtonType.Transparent,
+							press: this.handleProfilePress.bind(this)
+						}),
+						new Button({
+							text: 'Change Password',
+							type: sap.m.ButtonType.Transparent,
+							press: this.handleChangePasswordPress.bind(this)
+						}),
+						new Button({
+							text: 'Feedback',
+							type: sap.m.ButtonType.Transparent,
+							press: this.handleFeedbackPress.bind(this)
+						}),
+						new Button({
+							text: 'Logout',
+							type: sap.m.ButtonType.Transparent,
+							press: this.handleLogoutPress.bind(this)
+						})
+					]
+				}).addStyleClass('sapMOTAPopover sapTntToolHeaderPopover');
+			}
+			this.popover.openBy(event.getSource());
 		},
 		
 		handleFacebookPress: function (event){
@@ -147,13 +126,39 @@ sap.ui.define([
 			Login.open_login_dialog(this);
 		},
 
+		handleProfilePress: function(){
+			sap.ui.core.UIComponent.getRouterFor(this).navTo("Profile");
+			this._closePopoverSideNav();
+		},
+		handleFeedbackPress: function(){
+			window.open("https://form.jotform.me/80987924533469");
+			this._closePopoverSideNav();
+		},
+		handleLogoutPress: function(oEvent){
+			this.getOwnerComponent().getModel("appParam").setProperty("/busy", true);
+			Login.logout(function(){
+				Event.getInstance().updateEventModel(function(){
+					MessageToast.show("Member successfully logout");
+					this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+				}.bind(this),
+				function(){
+					this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+				}.bind(this))
+				
+			}.bind(this),
+			function(){
+				this.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
+			}.bind(this))
+			this._closePopoverSideNav();
+		},
+
 		handleEventSelect: function(){
 			sap.ui.core.UIComponent.getRouterFor(this).navTo("Event");
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
 			toolPage.setSideExpanded(false);
 		},
-		
+
 		onSideNavButtonPress: function(oEvent){
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
@@ -231,7 +236,20 @@ sap.ui.define([
 			}
 
 			this.changePasswordDialog.open();
+			this._closePopoverSideNav();
 		},
+
+		_closePopoverSideNav: function(){
+			if(this.popover){
+				this.popover.close();
+			}
+			var viewId = this.getView().getId();
+			var toolPage = sap.ui.getCore().byId(viewId + "--toolPage");
+			if(toolPage){
+				toolPage.setSideExpanded(false);
+			}
+			
+		}
 	});
 
 });

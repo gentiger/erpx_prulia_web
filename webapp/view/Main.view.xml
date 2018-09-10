@@ -33,7 +33,7 @@
 											frameType="OneByOne" press="handleEventPress" headerImage="sap-icon://pu/event" header="&#xA;" subheader="Event" >
 										</GenericTile>
 										<GenericTile
-											frameType="OneByOne" press="handlePhotoAlbumPress" headerImage="sap-icon://pu/photoalbum" header="&#xA;" subheader="Photo Album">
+											frameType="OneByOne" press="handlePhotoAlbumPress" headerImage="sap-icon://picture" header="&#xA;" subheader="Photo Album">
 										</GenericTile>
 									</l:Grid>
 								</l:BlockLayoutCell>
