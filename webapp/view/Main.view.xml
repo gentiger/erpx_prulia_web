@@ -251,7 +251,7 @@
 										backgroundColorSet="ColorSet2" 
 										backgroundColorShade="ShadeA"
 										class="sapUiNoContentPadding mainPageContent">
-										<Image src="http://103.253.146.122/files/LocationMap.png" densityAware="false" width="100%"/>
+										<Image src="css/files/LocationMap.png" densityAware="false" width="100%"/>
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
 							<l:BlockLayoutRow>

@@ -22,7 +22,7 @@
 								alignItems="Center"
 								justifyContent="Center">
 								<items>
-									<Image src="http://103.253.146.122/files/committee1.jpg" width="100%" densityAware="false"/>
+									<Image src="https://admin.prulia.org.my/files/committee1.jpg" width="100%" densityAware="false"/>
 								</items>
 							</FlexBox>
 							
@@ -41,7 +41,7 @@
 								alignItems="Center">
 								<Title text="President" />
 								<f:Avatar
-									src="http://103.253.146.122/files/President.jpg"
+									src="https://admin.prulia.org.my/files/President.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Maniraja Chandran" class="sapUiSmallMarginTop" />
@@ -63,7 +63,7 @@
 								alignItems="Center">
 								<Title text="Immediate Past President" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Emily_Nyok.jpg"
+									src="https://admin.prulia.org.my/files/Emily_Nyok.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Emily Ngok" class="sapUiSmallMarginTop" />
@@ -87,7 +87,7 @@
 								alignItems="Center">
 								<Title text="1st Vice President" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Kam_Chee_Mengdf57a7.png"
+									src="https://admin.prulia.org.my/files/Kam_Chee_Mengdf57a7.png"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Kam Chee Meng" class="sapUiSmallMarginTop" />
@@ -109,7 +109,7 @@
 								alignItems="Center">
 								<Title text="2nd Vice President" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Lim_Sook_Kwan.jpg"
+									src="https://admin.prulia.org.my/files/Lim_Sook_Kwan.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Lim Sook Kwan" class="sapUiSmallMarginTop" />
@@ -133,7 +133,7 @@
 								alignItems="Center">
 								<Title text="Secretary General" />
 								<f:Avatar
-									src="http://103.253.146.122/files/ShereenLim.jpg"
+									src="https://admin.prulia.org.my/files/ShereenLim.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Shereen Lim Chooi Chin" class="sapUiSmallMarginTop" />
@@ -155,7 +155,7 @@
 								alignItems="Center">
 								<Title text="Assistant Secretary General" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Steven_Lee.jpg"
+									src="https://admin.prulia.org.my/files/Steven_Lee.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Steven Lee Kim Huat" class="sapUiSmallMarginTop" />
@@ -179,7 +179,7 @@
 								alignItems="Center">
 								<Title text="Treasurer" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Wooi198fd00.jpg"
+									src="https://admin.prulia.org.my/files/Wooi198fd00.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Wooi Yu Thong" class="sapUiSmallMarginTop" />
@@ -201,7 +201,7 @@
 								alignItems="Center">
 								<Title text="Assistant Treasurer" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Justine_Ng.jpg"
+									src="https://admin.prulia.org.my/files/Justine_Ng.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Steven Lee Kim Huat" class="sapUiSmallMarginTop" />
@@ -225,7 +225,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Alan_Lim.png"
+									src="https://admin.prulia.org.my/files/Alan_Lim.png"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Alan Lim Peng Boon" class="sapUiSmallMarginTop" />
@@ -247,7 +247,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Nur_Ayesha.jpg"
+									src="https://admin.prulia.org.my/files/Nur_Ayesha.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Nur Ayesha" class="sapUiSmallMarginTop" />
@@ -269,7 +269,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Mohd_Haniff.jpg"
+									src="https://admin.prulia.org.my/files/Mohd_Haniff.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Mohd Haniff" class="sapUiSmallMarginTop" />
@@ -291,7 +291,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Raja559c6c.jpeg"
+									src="https://admin.prulia.org.my/files/Raja559c6c.jpeg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Raja Zainal" class="sapUiSmallMarginTop" />
@@ -315,7 +315,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Koh_Mei_Mei.jpg"
+									src="https://admin.prulia.org.my/files/Koh_Mei_Mei.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Koh Mei Mei" class="sapUiSmallMarginTop" />
@@ -337,7 +337,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Lim_Sin_Siong.jpg"
+									src="https://admin.prulia.org.my/files/Lim_Sin_Siong.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Lim Sin Siong" class="sapUiSmallMarginTop" />
@@ -359,7 +359,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Fauziah.jpg"
+									src="https://admin.prulia.org.my/files/Fauziah.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Fauziah Khalid" class="sapUiSmallMarginTop" />
@@ -381,7 +381,7 @@
 								alignItems="Center">
 								<Title text="Committee" />
 								<f:Avatar
-									src="http://103.253.146.122/files/Mohd_Fuziad8769.jpg"
+									src="https://admin.prulia.org.my/files/Mohd_Fuziad8769.jpg"
 									displaySize="XL">
 								</f:Avatar>
 								<Title text="Mohd Fuzi Dol" class="sapUiSmallMarginTop" />

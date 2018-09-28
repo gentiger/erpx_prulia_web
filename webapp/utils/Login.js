@@ -36,7 +36,7 @@ sap.ui.define([
 		login: function(username, password, fnSuccess, fnError){
 			/*Setup Frappe Cookie*/
 			
-			$.post('/api/method/login',{ usr: username, pwd: password, device: "desktop" }, function(data, status, xhr){
+			$.post(Config.serverURL+'/api/method/login',{ usr: username, pwd: password, device: "desktop" }, function(data, status, xhr){
 				var cookie_source = xhr.getResponseHeader('Set-Cookie');
 				this.readMemberDetails(function(){
 					fnSuccess();
@@ -47,7 +47,7 @@ sap.ui.define([
 			}.bind(this));
 		},
 		logout: function(fnSuccess, fnError){
-			$.get('/api/method/logout', function(data, status, xhr){
+			$.get(Config.serverURL + '/api/method/logout', function(data, status, xhr){
 				this._loginModel.setProperty("/memberLogon", false);
 				this._memberModel.setData({});
 				if(fnSuccess){
@@ -63,7 +63,7 @@ sap.ui.define([
 		},
 		check_if_cookie_valid: function(fnSuccess, fnError){
 			var that = this;
-			$.get('/api/method/frappe.auth.get_logged_user', function(data, status, xhr){
+			$.get(Config.serverURL+'/api/method/frappe.auth.get_logged_user', function(data, status, xhr){
 				this._loginModel.setProperty("/memberLogon", true);
 				if(fnSuccess){
 					fnSuccess();
@@ -142,7 +142,7 @@ sap.ui.define([
 			console.log(prulia_id + " " + nric_number);
 			$.ajax({
 			 	type: "POST",
-			  	url: '/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.forget_password',
+			  	url: Config.serverURL+'/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.forget_password',
 			  	data: JSON.stringify({prulia_id: prulia_id, nric_number: nric_number}),
 			  	success: function(data, status, xhr){
 			  		if(fnSuccess){
@@ -155,7 +155,7 @@ sap.ui.define([
           						title: "Warning",
           						actions: [sap.m.MessageBox.Action.CANCEL, sap.m.MessageBox.Action.OK],
           						onClose: function(oAction){
-									window.open("http://103.253.146.122/member-registration/")
+									window.open(Config.serverURL+"/member-registration/")
 								}
 							}
 						);
@@ -200,7 +200,7 @@ sap.ui.define([
 			})
 		},
 		readMemberDetails: function(fnSuccess, fnError){
-			$.get('/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.mobile_member_login', function(data, status, xhr){
+			$.get(Config.serverURL+'/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.mobile_member_login', function(data, status, xhr){
 				this.setMemberModel(data.message);
 				if(fnSuccess){
 					fnSuccess();
@@ -227,7 +227,7 @@ sap.ui.define([
 		updateMemberDetails: function(fnSuccess, fnError){
 			$.ajax({
 			 	type: "POST",
-			  	url: '/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.update_member_pref',
+			  	url: Config.serverURL+'/api/method/erpx_prulia.prulia_members.doctype.prulia_member.prulia_member.update_member_pref',
 			  	data: this._memberModel.getJSON(),
 			  	success: function(data, status, xhr){
 			  		this.setMemberModel(data.message);
@@ -255,7 +255,7 @@ sap.ui.define([
 		changePassword: function(currentPassword, newPassword, fnSuccess, fnError){
 			/*Setup Frappe Cookie*/
 			
-			$.post('/api/method/frappe.core.doctype.user.user.update_password',
+			$.post(Config.serverURL+'/api/method/frappe.core.doctype.user.user.update_password',
 				{ old_password: currentPassword, new_password: newPassword, logout_all_sessions: false }, function(data, status, xhr){
 					if(fnSuccess){
 						fnSuccess();

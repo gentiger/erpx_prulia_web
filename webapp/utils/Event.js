@@ -35,7 +35,7 @@ sap.ui.define([
           })
     },
     updateEventModel: function(fnSuccess, fnError){
-      $.get('/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.get_event_list_web', function(data, status, xhr){
+      $.get(Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.get_event_list_web', function(data, status, xhr){
           var oEventItem = [];
           if(data.message !== undefined){
             oEventItem = data.message;
@@ -231,7 +231,7 @@ sap.ui.define([
           "shirt": oEventRegistration.getProperty("/shirt_size"),
           "accomodation" : oEventRegistration.getProperty("/accomodation") === true ? "Yes" : "No"
         }
-        return $.post('/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.add_attendance', oPostData)
+        return $.post(Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.add_attendance', oPostData)
       } else {
         var oPostData = {
           "attendee_name": oEventRegistration.getProperty("/attendee_name"),
@@ -241,7 +241,7 @@ sap.ui.define([
         }
         return $.ajax({
           type: "POST",
-          url: '/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.update_event_attendee',
+          url: Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.update_event_attendee',
           data: JSON.stringify(oPostData),
           dataType: 'json',
           contentType: 'application/json'
@@ -255,7 +255,7 @@ sap.ui.define([
     deleteEventRegistration: function(oEventRegistration, oMember){
       return $.ajax({
         type: "POST",
-        url: '/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.del_attendance',
+        url: Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.del_attendance',
         data: JSON.stringify({member: oMember.getProperty("/name") , event: oEventRegistration.getObject().name}),
         dataType: 'json',
         contentType: 'application/json'
