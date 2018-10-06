@@ -71,25 +71,25 @@
 									
 								</l:BlockLayoutCell>
 							</l:BlockLayoutRow>
-							<l:BlockLayoutRow class="contactRow">
-								<l:BlockLayoutCell
-										titleAlignment="Left"
-										title="Contact Us"
-										backgroundColorSet="ColorSet2" 
-										backgroundColorShade="ShadeA"
-										class="contactCell startingText mainPageContent  startingMiddleText">
-									<VBox>
-										<items>
-											<Text text="Should you have any problem with your membership app login please email to " class="startingText "/>
-											<HBox fitContainer="true" justifyContent="Center" alignItems="Center">
-												<core:Icon src="sap-icon://letter" size="2.5rem" class="sapUiMediumMarginTop sapUiSmallMarginEnd contactEmailText"  />
-												<Link text="support@prulia.com.my" class="sapUiMediumMarginTop  contactEmailText startingText" />
-											</HBox>
-										</items>
-									</VBox>
+							<!--<l:BlockLayoutRow class="contactRow">-->
+							<!--	<l:BlockLayoutCell-->
+							<!--			titleAlignment="Left"-->
+							<!--			title="Contact Us"-->
+							<!--			backgroundColorSet="ColorSet2" -->
+							<!--			backgroundColorShade="ShadeA"-->
+							<!--			class="contactCell startingText mainPageContent  startingMiddleText">-->
+							<!--		<VBox>-->
+							<!--			<items>-->
+							<!--				<Text text="Should you have any problem with your membership app login please email to " class="startingText "/>-->
+							<!--				<HBox fitContainer="true" justifyContent="Center" alignItems="Center">-->
+							<!--					<core:Icon src="sap-icon://letter" size="2.5rem" class="sapUiMediumMarginTop sapUiSmallMarginEnd contactEmailText"  />-->
+							<!--					<Link text="support@prulia.com.my" class="sapUiMediumMarginTop  contactEmailText startingText" />-->
+							<!--				</HBox>-->
+							<!--			</items>-->
+							<!--		</VBox>-->
 									
-								</l:BlockLayoutCell>
-							</l:BlockLayoutRow>
+							<!--	</l:BlockLayoutCell>-->
+							<!--</l:BlockLayoutRow>-->
 							<l:BlockLayoutRow>
 								<l:BlockLayoutCell
 										titleAlignment="Left"

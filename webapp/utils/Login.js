@@ -184,7 +184,7 @@ sap.ui.define([
           						actions: [sap.m.MessageBox.Action.CANCEL, sap.m.MessageBox.Action.OK],
           						onClose: function(oAction){
           							if(oAction === "OK"){
-          								window.open("http://103.253.146.122/member-registration/");
+          								window.open("https://admin.prulia.org.my/member-registration/");
           								// window.open("http://127.0.0.1:8000/member-registration/")
           							}
           							

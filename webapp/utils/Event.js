@@ -57,7 +57,7 @@ sap.ui.define([
     _manageEventImage: function(aEvent){
       for(var i = 0; i < aEvent.length; i++){
           if(aEvent[i].event_image === undefined || aEvent[i].event_image === null){
-            aEvent[i].event_image = 'css/images/PruliaImage.png'
+            aEvent[i].event_image = 'css/images/PruliaImage.png';
           } else if(aEvent[i].event_image.indexOf("/files/") === 0){
             if(Config.serverURL === "http://127.0.0.1:8080"){
               aEvent[i].event_image = "http://127.0.0.1:8000" + aEvent[i].event_image;
@@ -169,7 +169,7 @@ sap.ui.define([
                     if(data.message === "success"){
                       MessageToast.show("Perferences was update successfully");
                     } else {
-                      MessageToast.show(JSON.parse(JSON.parse(data._server_messages)[0]).message)
+                      MessageToast.show(JSON.parse(JSON.parse(data._server_messages)[0]).message);
                     }
                     
                   }
@@ -182,8 +182,8 @@ sap.ui.define([
                   oController.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
                 }, function(){
                   oController.getOwnerComponent().getModel("appParam").setProperty("/busy", false);
-                })
-              }.bind(this))
+                });
+              }.bind(this));
               // this.login(
               //   sap.ui.getCore().byId("memberLogin-Username").getValue(), 
               //   sap.ui.getCore().byId("memberLogin-Password").getValue(), 
@@ -214,7 +214,7 @@ sap.ui.define([
             this.eventPrefDialog = undefined;
           }.bind(this)
         });
-      };
+      }
       //to get access to the global model
       oController.getView().addDependent(this.eventPrefDialog);
       this.eventPrefDialog.setModel(oBindingModel);
@@ -230,22 +230,22 @@ sap.ui.define([
           "meal": oEventRegistration.getProperty("/meal_option"),
           "shirt": oEventRegistration.getProperty("/shirt_size"),
           "accomodation" : oEventRegistration.getProperty("/accomodation") === true ? "Yes" : "No"
-        }
-        return $.post(Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.add_attendance', oPostData)
+        };
+        return $.post(Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.add_attendance', oPostData);
       } else {
         var oPostData = {
           "attendee_name": oEventRegistration.getProperty("/attendee_name"),
           "meal_option": oEventRegistration.getProperty("/meal_option"),
           "shirt_size": oEventRegistration.getProperty("/shirt_size"),
           "accomodation" : oEventRegistration.getProperty("/accomodation") === true ? "Yes" : "No"
-        }
+        };
         return $.ajax({
           type: "POST",
           url: Config.serverURL+'/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.update_event_attendee',
           data: JSON.stringify(oPostData),
           dataType: 'json',
           contentType: 'application/json'
-        })
+        });
 
         // return $.post(Config.serverURL + '/api/method/erpx_prulia.prulia_events.doctype.prulia_event.prulia_event.update_event_attendee', JSON.stringify(oPostData));
       }
@@ -259,7 +259,7 @@ sap.ui.define([
         data: JSON.stringify({member: oMember.getProperty("/name") , event: oEventRegistration.getObject().name}),
         dataType: 'json',
         contentType: 'application/json'
-      })
+      });
     }
   });
   return {
